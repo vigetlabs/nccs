@@ -5,10 +5,13 @@
 
   <body>
 
-    <div class="content container">
-      {{ content }}
-    </div>
+    <a href="#main" class="sr-only focus-not-sr-only skip-link">Skip to Content</a>
 
+    {% include nav.html %}
+
+    <main id="main">
+      {{ content }}
+    </main>
 
     <script type="module" src="{{ site.baseurl }}/public/js/main.js"></script>
   </body>

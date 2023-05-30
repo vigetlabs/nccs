@@ -1,0 +1,17 @@
+.nav {
+  background-color: $color-blue-500;
+  color: $color-white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+}
+
+.nav__link {
+  color: $color-white;
+  text-decoration: none;
+}
