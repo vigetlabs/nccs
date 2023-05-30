@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<h1>NCCS</h1>
+
+<p>Temporary staging site. The below layouts are all individual collections.</p>
+
+<h2>Datasets</h2>
+
+<div class="posts">
+  {% for post in site.datasets %}
+  <div class="post">
+    <h2 class="post-title">
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Projects</h2>
+
+<div class="projects">
+  {% for post in site.projects %}
+  <div class="post">
+    <h2 class="post-title">
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Stories</h2>
+
+<div class="posts">
+  {% for post in site.stories %}
+  <div class="post">
+    <h2 class="post-title">
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+  </div>
+  {% endfor %}
+</div>
