@@ -1,7 +1,22 @@
 ---
 ---
 
+// NOTES:
+// This site utilizes a BEM approach to class naming: https://getbem.com/
+// Block = standalone entity that has meaning on it's own
+// Element = no standalone meaning, typically part of a block
+// Modifier = a flag on a Block or Element
+// 
+// In addition several composable utility classes are used where a full block
+// definition is uncessary or to increase re-usability of classes
+
+// Base
+@import "base/normalize";
 @import "base/variables";
 @import "base/globals";
-@import "components/components";
-@import "utilities";
+
+// Components
+@import "components/nav";
+
+// Utility-classes
+@import "utilities/screen-reader";

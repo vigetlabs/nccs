@@ -20,18 +20,21 @@
 
 title: NCCS
 email: 
+tagline: Short descriptor for site
 description: >- # this means to ignore newlines until "baseurl:"
-  NCCS datasets
-baseurl: "/nccs" # the subpath of your site, e.g. /blog
+  Longer description for site
+baseurl: "/nccs" # the subpath of your site if not served from the root, e.g. /nccs
 url: "https://code.viget.com/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:
 
 # Navigation Items
-# Entries here will show up in the
+# Entries here will show up in the _includes/nav.html partial
 nav:
   - title: Datasets
     url: /datasets/
+  - title: Publications
+    url: /publications/
 
 # Build settings
 sass:
@@ -51,7 +54,7 @@ jekyll-minifier:
   uglifier_args:
     harmony: true
 
-# Set defaults
+# Set defaults per collection type so they don't have to be specifed each time
 defaults:
   -
     scope:
@@ -76,6 +79,12 @@ defaults:
       type: "datasets"
     values:
       layout: "dataset"
+  -
+    scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
 
 # Collections
 collections:
@@ -86,6 +95,9 @@ collections:
     output: true
     permalink: /:collection/:name/
   projects:
+    output: true
+    permalink: /:collection/:name/
+  publications:
     output: true
     permalink: /:collection/:name/
 

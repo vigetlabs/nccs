@@ -11,7 +11,7 @@
 }
 
 .focus-not-sr-only:focus {
-  position: static;
+  position: absolute;
   width: auto;
   height: auto;
   padding: 0;

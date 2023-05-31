@@ -1,9 +1,10 @@
 {% comment %}
-NAVIGATION - items are pulled from _config.yml
+NAVIGATION 
+- items are pulled from _config.yml
 {% endcomment %}
 
 <header class="nav">
-  <a class="nav__link" href="{{ '/' | relative_url }}">Home</a>
+  <a class="nav__link" href="{{ '/' | relative_url }}">{{ site.title }}</a>
   <nav class="">
     <ul class="nav__list">
       {% for link in site.nav %}
