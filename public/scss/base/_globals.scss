@@ -1,5 +1,26 @@
 body {
+  @include fluid-font(16, 20);
   font-family: "Lato", sans-serif;
-  padding: 0;
+  line-height: 1.5;
   margin: 0;
+  padding: 0;
+}
+
+// Flexible Grid
+// There are 4 sizes defined, starting from inward to outward:
+// content, popout, feature, full
+
+.grid {
+  display: grid;
+  grid-template-columns: [full-start] #{$grid-full} [feature-start] #{$grid-feature} [popout-start] #{$grid-popout} [content-start] #{$grid-content} [content-end] #{$grid-popout} [popout-end] #{$grid-feature} [feature-end] #{$grid-full} [full-end];
+}
+
+// Set default grid assignment
+.grid > * {
+  grid-column: content;
+}
+
+// Inset content, for setting flush with content inside a full or feature element
+.grid-inner-content {
+  width: $grid-content;
 }

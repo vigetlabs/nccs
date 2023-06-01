@@ -5,13 +5,13 @@
 // DYNAMIC MODULES/COMPONENTS
 // This pattern allows lazy loading of component-specific javascript without
 // a build system like Vite or Webpack. It relies on ESM modules.
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 // Each module is identified with the data attribute:
 // data-module="name-of-module"
 // And then loaded with a dynamic import statement
 
 // select every "data-module" and convert the NodeList to an Array
+
 const dataModules = [...document.querySelectorAll('[data-module]')]
 
 // store all instances

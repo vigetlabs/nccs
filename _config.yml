@@ -50,10 +50,6 @@ feed:
     - datasets
     - stories
 
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
-
 # Set defaults per collection type so they don't have to be specifed each time
 defaults:
   -

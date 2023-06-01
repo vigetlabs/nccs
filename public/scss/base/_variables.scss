@@ -1,3 +1,6 @@
+// Colors
+// hsla used for better gradient control
+
 // Neutrals
 $color-white: hsla(0, 0%, 100%, 1);
 
@@ -6,3 +9,25 @@ $color-blue-500: hsla(199, 81%, 45%, 1);
 $color-blue-700: hsla(199, 80%, 35%, 1);
 $color-blue-800: hsla(199, 83%, 23%, 1);
 $color-blue-900: hsla(199, 80%, 12%, 1);
+
+// Layout, see Globals
+$containerWidth: 80rem;
+$grid-gap: clamp(1rem, 6vw, 3rem);
+$grid-full: minmax(#{$grid-gap}, 1fr);
+$grid-content: min(40em, 100% - #{$grid-gap} * 2);
+$grid-popout: minmax(0, 2rem);
+$grid-feature: minmax(0, 10rem);
+
+// Fluid Font Definitions, see Functions
+$remBase: 16;
+$fluidWidthMin: 640;
+$fluidWidthMax: 1440;
+
+// Breakpoints for media queries, see Functions
+$breakpoints: (
+	sm: 'min-width: 640px',
+	md: 'min-width: 768px',
+  lg: 'min-width: 1024px',
+  xl: 'min-width: 1280px',
+  2xl: 'min-width: 1536px',
+);
