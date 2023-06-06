@@ -110,12 +110,13 @@ collections:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "Rakefile"
   - "*.qmd"
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
 #   - node_modules/
 #   - vendor/bundle/
 #   - vendor/cache/
