@@ -12,6 +12,11 @@ NAVIGATION
         <a class="nav__link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
       </li>
       {% endfor %} 
+      {% if site.repository %}
+      <li class="nav__item">
+        <a class="nav__link" href="{{ site.repository }}">Github</a>
+      </li>
+      {% endif %}
     </ul>
   </nav>
 </header>

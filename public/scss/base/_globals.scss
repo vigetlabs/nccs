@@ -1,26 +1,77 @@
+// set fluid font so all rem units also scale
+html {
+}
+
 body {
-  @include fluid-font(16, 20);
   font-family: "Lato", sans-serif;
   line-height: 1.5;
+  @include fluid-font(16, 20);
   margin: 0;
   padding: 0;
+}
+
+img {
+  max-width: 100%;
 }
 
 // Flexible Grid
 // There are 4 sizes defined, starting from inward to outward:
 // content, popout, feature, full
 
-.grid {
+.grid-content {
   display: grid;
   grid-template-columns: [full-start] #{$grid-full} [feature-start] #{$grid-feature} [popout-start] #{$grid-popout} [content-start] #{$grid-content} [content-end] #{$grid-popout} [popout-end] #{$grid-feature} [feature-end] #{$grid-full} [full-end];
 }
 
+.grid-sidebar {
+  display: grid;
+  grid-template-columns: [full-start] #{$grid-full} [content-start] #{$grid-content} [content-end] #{$grid-full} [full-end];
+
+  @include breakpoint(md) {
+    grid-template-columns: [full-start] #{$grid-full} [sidebar-start] #{$grid-sidebar} [sidebar-end gap-start] #{$grid-sidebar-gap} [gap-stop content-start] #{$grid-sidebar-content} [content-end] #{$grid-full} [full-end];
+  }
+}
+
+.grid-feature {
+  display: grid;
+}
+
 // Set default grid assignment
-.grid > * {
+.grid-content > * {
   grid-column: content;
+}
+
+.full {
+  grid-column: full;
+}
+
+.feature {
+  grid-column: feature;
+}
+
+.popout {
+  grid-column: popout;
+}
+
+.content {
+  grid-column: content;
+}
+
+.sidebar {
+  grid-column: content;
+
+  @include breakpoint(md) {
+    grid-column: sidebar;
+  }
 }
 
 // Inset content, for setting flush with content inside a full or feature element
 .grid-inner-content {
   width: $grid-content;
+  margin: 0 auto;
+}
+
+.grid-inner-feature {
+  max-width: $grid-container;
+  margin: 0 auto;
 }

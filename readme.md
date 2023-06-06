@@ -9,6 +9,13 @@ Command-line instructions
 3. `bundle install` to load gems
 4. `bundle exec jekyll serve` to spin the site up locally
 
+Alternatively after you've set up the project, you can use the command shortcuts in the `Rakefile` to save yourself some typing:
+
+|Command|Description|
+|:---|:---|
+|`rake dev`|Starts Jekyll locally|
+|`rake build`|Run the Jekyll build process locally|
+
 ## Development Principles
 
 - **No build system**

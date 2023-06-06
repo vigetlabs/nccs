@@ -1,0 +1,18 @@
+{% comment %}
+Hero
+- header {String}
+- description {String}
+- imageUrl {String (url)}
+- imageAlt {String}
+{% endcomment %}
+
+<div class="hero">
+  <div class="hero__column -copy">
+    <h1>{{ include.header }}</h1>
+    <p>{{ include.description }}</p>
+  </div>
+
+  <div class="hero__column -image">
+    <img src="{{ include.imageUrl }}" alt="{{ include.imageAlt }}" loading="lazy">
+  </div>
+</div>

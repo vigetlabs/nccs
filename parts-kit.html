@@ -1,0 +1,23 @@
+---
+title: Parts Kit
+layout: default
+---
+
+<div class="content text-center">
+  <h1>NCCS Parts Kit</h1>
+  <p>This page contains demo site components. To see how to include on a page, view the template in the repo.</p>
+</div>
+
+<div class="feature border-b-blue mb-2">
+  <h2 class="m-0 p-0">Hero</h2>
+  <p>Requires a <code>.feature</code> sizing wrapper.</p>
+</div>
+
+<div class="feature">
+  {% include components/hero.html
+    header = "Welcome to the National Center for Charitable Statistics (NCCS) open data platform"
+    description = "Consectetur atque culpa ad quidem ex? Deleniti atque error necessitatibus cumque quisquam. Fugit necessitatibus commodi eveniet."
+    imageUrl = "https://placehold.co/855x555"
+    imageAlt = "A11y description"
+  %}
+</div>

@@ -3,17 +3,19 @@ title: Datasets
 layout: default
 ---
 
-<h1>Datsets Index</h1>
+<div class="content">
+  <h1>Datasets Index</h1>
 
-<div class="posts">
-  {% for post in site.datasets %}
-  <div class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+  <div class="posts">
+    {% for post in site.datasets %}
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+        </a>
+      </h2>
+      <span class="post-date">{{ post.date | date_to_string }}</span>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>

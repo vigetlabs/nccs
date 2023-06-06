@@ -9,7 +9,15 @@
 
     {% include nav.html %}
 
-    <main id="main" class="grid">
+    {% if page.grid %}
+      {% assign grid = "grid-" | append: page.grid %}
+    {% elsif layout.grid %}
+      {% assign grid = "grid-" | append: layout.grid %}
+    {% else %}
+      {% assign grid = "grid-content" %}
+    {% endif %}
+
+    <main id="main" class="{{ grid }}">
       {{ content }}
     </main>
 

@@ -3,11 +3,23 @@ layout: default
 isFrontPage: true
 ---
 
-<h1>NCCS</h1>
+<div class="feature">
+  {% include components/hero.html
+    header = "Welcome to the National Center for Charitable Statistics (NCCS) open data platform"
+    description = "Consectetur atque culpa ad quidem ex? Deleniti atque error necessitatibus cumque quisquam. Fugit necessitatibus commodi eveniet."
+    imageUrl = "https://placehold.co/855x555"
+    imageAlt = "A11y description"
+  %}
+</div>
 
-<p>Temporary staging site. The below layouts are all individual collections.</p>
+<div class="content text-center">
+  <h2>Getting Started with NCCS Data</h2>
+  <p>Consectetur neque culpa officiis saepe adipisci. In corporis earum assumenda consequatur voluptatibus.</p>
+</div>
 
 <h2>Datasets</h2>
+
+<p>Elit magni temporibus excepturi nemo voluptatibus Illum consequatur accusantium dolorum magni sapiente dolores. Fuga blanditiis ea eius enim itaque. Impedit deserunt excepturi possimus sapiente provident. Quis magni repellendus minus error.</p>
 
 <div class="posts">
   {% for post in site.datasets %}
@@ -67,6 +79,8 @@ isFrontPage: true
   {% endfor %}
 </div>
 
-<div data-module="filter">
-  <h2>Testing data modules</h2>
+<div class="full" data-module="filter" style="background: blue; color: white;">
+  <div class="grid-inner-feature">
+    <h2>Testing data modules</h2>
+  </div>
 </div>

@@ -1,0 +1,27 @@
+.flex {
+  display: flex;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.gap {
+  gap: clamp(1rem, 3vw, 2.5rem) 
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-1 {
+  margin-block-end: 1rem;
+}
+
+.mb-2 {
+  margin-block-end: 2rem;
+}
+
+.p-0 {
+  padding: 0;
+}

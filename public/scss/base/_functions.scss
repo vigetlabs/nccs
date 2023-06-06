@@ -20,6 +20,11 @@
 	}
 }
 
+// helper function to return a breakpoint
+@function bp($bp) {
+	@return map-get($breakpoints, $bp);
+}
+
 // FLUID FONTS - creates fluid font definitions
 // Accepts number as pixel units, handles rem conversion
 // Usage:
@@ -30,5 +35,5 @@
   $fontMax: $valueMax / $remBase;
   $clampLow: ((100 * ($valueMax - $valueMin)) / ($fluidWidthMax - $fluidWidthMin));
   $clampHigh:(($fluidWidthMin * $valueMax - $fluidWidthMax * $valueMin) / ($fluidWidthMin - $fluidWidthMax)) / $remBase;
-  font-size: clamp( #{$fontMin}rem, "#{$clampLow}vw + #{$clampHigh}rem", #{$fontMax}rem);
+  font-size: clamp( #{$fontMin}rem, unquote("#{$clampLow}vw + #{$clampHigh}rem"), #{$fontMax}rem);
 }
