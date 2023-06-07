@@ -2,10 +2,10 @@
 ---
 
 // NOTES:
-// This site utilizes a BEM approach to class naming: https://getbem.com/
+// This site utilizes a modified BEM approach to class naming:
 // Block = standalone entity that has meaning on it's own
 // Element = no standalone meaning, typically part of a block
-// Modifier = a flag on a Block or Element
+// (Sassy/Simplified) Modifier = a flag on a Block or Element, written as `-mod`
 // 
 // In addition several composable utility classes are used where a full block
 // definition is uncessary or to increase re-usability of classes
@@ -18,6 +18,7 @@
 @import "base/type";
 
 // Components
+@import "components/svg";
 @import "components/nav";
 @import "components/hero";
 
