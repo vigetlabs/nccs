@@ -35,10 +35,10 @@ $color-warning: hsla(51, 89%, 67%, 1);
 // Semantic Colors
 $color-blue-primary: $color-blue-500;
 $color-neutral-primary: $color-neutral-500;
+$color-text: $color-neutral-900;
 
 // Gradients
 $gradient-blue-horizontal: linear-gradient(to right, #{$color-blue-700} 0%, #{$color-blue-500} 50%, #{$color-blue-700} 100%);
-
 
 // Layout, see Globals
 $grid-container: 74rem;
@@ -64,3 +64,8 @@ $breakpoints: (
   xl: 'min-width: 1280px',
   2xl: 'min-width: 1536px',
 );
+
+// Animation and Easing
+$transition-speed-default: 250ms;
+$ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+
