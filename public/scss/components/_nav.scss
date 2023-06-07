@@ -135,13 +135,16 @@
   font-size: 1.5em;
   text-decoration: none;
   text-transform: uppercase;
+  border-bottom: 4px solid transparent;
+  transition: border-color $transition-speed-default $ease-out-quad;
 
   &:hover, &:focus {
     color: $color-yellow;
+    border-color: $color-yellow;
   }
 
   &.-active {
-    border-bottom: 4px solid $color-yellow;
+    border-color: $color-yellow;
   }
 
   @include breakpoint(md) {
@@ -175,10 +178,6 @@
   position: absolute;
   transition: transform 250ms $ease-out-quad, opacity 100ms $ease-out-quad, background-color $transition-speed-default $ease-out-quad;
   width: 100%;
-
-  .-pinned & {
-    background-color: $color-text;
-  }
 
   &.-top {
     top: 0;
