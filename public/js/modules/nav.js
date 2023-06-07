@@ -31,7 +31,6 @@ export default class nav {
     // close mobile nav if left open and resized
     this.resizeObserver = new ResizeObserver(() => {
       if (this.mql.matches && this.mobileOpen) {
-        console.log('resize close')
         this.toggleVisibilty();
       }
     });
