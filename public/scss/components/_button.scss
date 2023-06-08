@@ -1,0 +1,61 @@
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.625em 0.875em;
+  font-weight: 800;
+  transition: color $transition-speed-default $ease-out-quad, background-color $transition-speed-default $ease-out-quad, border-color $transition-speed-default $ease-out-quad;
+  font-size: 0.9em;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  border: 0;
+  line-height: 1.25;
+
+  &[disabled] {
+    cursor: not-allowed; 
+  }
+
+  &.-primary {
+    background-color: $color-blue-800;
+    color: $color-white;
+
+    &:hover, &:focus {
+      background-color: $color-blue-700;
+    }
+
+    &[disabled] {
+      background-color: $color-neutral-primary;
+    }
+  }
+
+  &.-secondary {
+    box-shadow: inset 0 0 0 2px $color-blue-700;
+    color: $color-blue-700;
+    background-color: transparent;
+
+    &:hover {
+      box-shadow: inset 0 0 0 2px $color-blue-800;
+      background-color: $color-blue-800;
+      color: $color-white;
+      border-color: $color-blue-800;
+    }
+
+    &[disabled] {
+      box-shadow: inset 0 0 0 2px $color-neutral-primary;
+      color: $color-neutral-primary;
+      background-color: transparent;
+    }
+  }
+
+  &.-text {
+    padding: 0;
+    color: $color-link;
+    background: transparent;
+
+    &:hover, &:focus {
+      color: $color-blue-800;
+    }
+  }
+}

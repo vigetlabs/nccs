@@ -2,6 +2,22 @@
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -14,14 +30,38 @@
   margin: 0;
 }
 
+.mb-0 {
+  margin-block-end: 0;
+}
+
 .mb-1 {
-  margin-block-end: 1rem;
+  margin-block-end: 1em;
 }
 
 .mb-2 {
-  margin-block-end: 2rem;
+  margin-block-end: 2em;
+}
+
+.mt-1\/2 {
+  margin-block-start: 0.5em;
+}
+
+.mt-1 {
+  margin-block-start: 1em;
+}
+
+.mt-2 {
+  margin-block-start: 2em;
+}
+
+.mt-content {
+  margin-block-start: 3em;
 }
 
 .p-0 {
   padding: 0;
+}
+
+.pb-1 {
+  padding-block-end: 1em;
 }

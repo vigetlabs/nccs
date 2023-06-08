@@ -43,8 +43,8 @@ nav:
     url: /stories/
   - title: About
     url: /about/
-  - title: Really Long Nav Item
-    url: /404/
+  - title: Parts (temp)
+    url: /parts-kit/
 
 # Build settings
 sass:
