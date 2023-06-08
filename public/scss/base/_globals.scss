@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   @include fluid-font(16, 20);
   font-family: "Lato", sans-serif;
