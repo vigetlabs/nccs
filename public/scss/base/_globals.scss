@@ -1,11 +1,8 @@
-// set fluid font so all rem units also scale
-html {
-}
-
 body {
+  @include fluid-font(16, 20);
   font-family: "Lato", sans-serif;
   line-height: 1.5;
-  @include fluid-font(16, 20);
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -15,7 +12,27 @@ img {
 }
 
 a {
+  color: $color-link;
   transition: color $transition-speed-default $ease-out-quad;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-link-hover;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+  }
+}
+
+ul, ol {
+  padding-inline-start: 1em;
+}
+
+code {
+  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", Inconsolata,
+    Consolas, MonoLisa, Monoid, Menlo, Monaco, Andale Mono WT, Andale Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L,
+    monospace;
 }
 
 // Flexible Grid

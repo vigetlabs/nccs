@@ -7,7 +7,7 @@
   gap: 1.125em;
   position: sticky;
   top: -1px;
-  transition: all $transition-speed-default $ease-out-quad;
+  transition: padding $transition-speed-default $ease-out-quad;
 
   // allows transition over top of the gradient
   &:before {
@@ -45,6 +45,11 @@
 
   .-pinned & {
     gap: 1em;
+  }
+
+  &:hover, &:focus {
+    text-decoration: none;
+    color: $color-white;
   }
 }
 
@@ -131,16 +136,18 @@
 }
 
 .nav__link {
+  border-bottom: 4px solid transparent;
   color: $color-white;
   font-size: 1.5em;
+  font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
-  border-bottom: 4px solid transparent;
   transition: border-color $transition-speed-default $ease-out-quad;
 
   &:hover, &:focus {
     color: $color-yellow;
     border-color: $color-yellow;
+    text-decoration: none;
   }
 
   &.-active {

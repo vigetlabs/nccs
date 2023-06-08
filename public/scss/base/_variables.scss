@@ -36,6 +36,8 @@ $color-warning: hsla(51, 89%, 67%, 1);
 $color-blue-primary: $color-blue-500;
 $color-neutral-primary: $color-neutral-500;
 $color-text: $color-neutral-900;
+$color-link: $color-blue-700;
+$color-link-hover: $color-blue-800;
 
 // Gradients
 $gradient-blue-horizontal: linear-gradient(to right, #{$color-blue-700} 0%, #{$color-blue-500} 50%, #{$color-blue-700} 100%);

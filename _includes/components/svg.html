@@ -5,8 +5,10 @@ INLINE SVGs
 - width {Number} requires css units
 {% endcomment %}
 
-{% assign iconPath = "svg/" | append: include.filename | append: ".svg" %}
+{% if include.filename and include.filename != "" %}
+  {% assign iconPath = "svg/" | append: include.filename | append: ".svg" %}
 
-<div class="{{ "svg " | append: include.class }}" {% if include.width %}style="{{ "width: " | append: include.width | append: ";"}}"{% endif %} >
-  {% include {{ iconPath }} %}
-</div>
+  <div class="{{ "svg " | append: include.class }}" {% if include.width %}style="{{ "width: " | append: include.width | append: ";"}}"{% endif %} >
+    {% include {{ iconPath }} %}
+  </div>
+{% endif %}
