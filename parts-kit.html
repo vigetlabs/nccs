@@ -177,6 +177,36 @@ sampleLinks:
       disabled = true
     %}
   </div>
+
+  <h3 class="mb-0">Light</h3>
+
+  <div class="flex gap bg-blue-800 p-1">
+    {% include components/button.html
+      text = "Text"
+      href = "#"
+      style = "light"
+    %}
+
+    {% include components/button.html
+      text = "Text with Icon"
+      href = "#"
+      style = "light"
+      icon = "external"
+    %}
+
+    {% include components/button.html
+      text = "Text as Button"
+      tag = "button"
+      style = "light"
+    %}
+
+    {% include components/button.html
+      text = "Text Disabled"
+      href = "#"
+      style = "light"
+      disabled = true
+    %}
+  </div>
 </div>
 
 <div class="feature pb-1 border-b-blue flow-3">
