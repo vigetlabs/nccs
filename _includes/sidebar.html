@@ -1,4 +1,89 @@
-<aside class="sidebar">
-  <h2>Sidebar</h2>
-  <p>Ipsum ullam earum ipsum accusantium autem eos Ad eaque sapiente iusto deleniti voluptate. Amet harum neque odio assumenda nesciunt labore? Corrupti sed adipisci quis ex voluptas deserunt. Beatae ipsam facilis.</p>
+{% comment %}
+SIDEBAR
+- header {String}
+- downloadUrl {String (url)}
+- downloadSize {String}
+- sidebarLinks {Object}
+  - title {String}
+  - url {String (url)}
+- sidebarSecondaryLinksTitle {String}
+- sidebarSecondaryLinks = {Object}
+  - title {String}
+  - url {String (url)}
+- citationUrl {String (url)}
+- citation {String}
+{% endcomment %}
+
+<aside class="sidebar flow">
+  <h1>{{ include.header }}</h1>
+
+  {% if include.downloadUrl %}
+    {% include components/button.html
+      text = "Download Data"
+      href = include.downloadUrl
+      style = "primary"
+      icon = "download"
+    %}
+  {% endif %}
+
+  {% if include.downloadSize %}
+    <p class="text-sm">File size: {{include.downloadSize}}</p>
+  {% endif %}
+
+  {% comment %}
+  Sidebar Links
+  These links are set at the content level, but the include is at the layout level
+  {% endcomment %}
+
+  {% if include.sidebarLinks %}
+    <div class="flex flex-col flow mt-1 flow-1/2">
+      {% for link in include.sidebarLinks %}
+        <div>
+          {% include components/button.html
+            text = link.title
+            href = link.href
+            style = "secondary"
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <hr>
+
+  {% comment %}
+  Sidebar Secondary Links
+  These links are set at the layout level, and may pull from global data in _config.yml
+  {% endcomment %}
+
+  <p class="text-xl font-bold">{{ include.sidebarSecondaryLinksTitle }}</p>
+
+  <div class="flex flex-col flow mt-1 flow-1/2">
+    {% for link in include.sidebarSecondaryLinks %}
+      <div>
+        {% include components/button.html
+          text = link.title
+          href = link.href
+          style = "secondary"
+        %}
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if include.citationUrl or include.citation %}
+    <hr>
+  {% endif %}
+
+  {% if include.citationUrl %}
+    {% include components/button.html
+      text = "Copy Citation"
+      style = "text"
+      icon = "external"
+    %}
+  {% endif %}
+
+  {% if include.citation %}
+  <p class="text-sm">{{ include.citation }}</p>
+  {% endif %}
+
 </aside>

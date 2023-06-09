@@ -1,15 +1,38 @@
 ---
-title: Dataset Sample
+title: Dataset Sample Full Fields
 date: 2023-05-27 12:00:00
 description: Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit
+downloadUrl: "#"
+downloadSize: "246kb"
+sidebarLinks:
+  - title: "R Package"
+    href: "#"
+  - title: "Data History"
+    href: "#"
+citationUrl: "#"
+citation: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham."
 categories:
   - environment
   - lorem
   - testing
 ---
 
-Testing out the dataset collection.
+## Overview
 
-Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui.
+Sit delectus inventore architecto optio tempora Labore error cumque officiis culpa nesciunt Necessitatibus facilis excepturi eaque eveniet consectetur? Maiores numquam a natus aliquid nulla, voluptatum Error officiis amet eos porro
 
-Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+---
+
+Sit harum necessitatibus excepturi suscipit tenetur? Animi iusto magnam illo porro aspernatur. Perspiciatis reprehenderit impedit quisquam aliquam ex, dicta. Perferendis similique perferendis fuga ipsum optio? Aspernatur rem distinctio odit explicabo
+
+Lorem consequatur qui rem quibusdam repellendus in voluptatum Explicabo excepturi culpa laudantium minima exercitationem. Animi accusantium temporibus necessitatibus delectus nemo. Minus explicabo praesentium ratione debitis consectetur atque Itaque velit omnis.
+
+- Donec id elit non mi porta gravida at eget metus.
+- Nullam quis risus eget urna mollis ornare vel eu leo.
+    - Donec ullamcorper nulla non metus auctor fringilla.
+    - Aenean lacinia bibendum nulla sed consectetur.
+- Cras mattis consectetur purus sit amet fermentum.
+
+### Lorem Ipsum
+
+Elit aut impedit alias deserunt blanditiis Placeat libero laboriosam quas iste nisi. Ut dicta nulla tempore beatae aliquid repudiandae soluta? Magnam rerum magni minus voluptate ea Eligendi harum obcaecati error

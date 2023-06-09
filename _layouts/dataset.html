@@ -3,15 +3,19 @@ layout: default
 grid: sidebar
 ---
 
-{% include sidebar.html %}
-
+{% include sidebar.html
+  header = page.title
+  downloadUrl = page.downloadUrl
+  downloadSize = page.downloadSize
+  sidebarLinks = page.sidebarLinks
+  sidebarSecondaryLinksTitle = site.sidebar_datasets_title
+  sidebarSecondaryLinks = site.sidebar_datasets_links
+  citationUrl = page.citationUrl
+  citation = page.citation
+%}
 
 <div class="content">
-  <span>Dataset Layout</span>
-
-  <div class="post">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <span class="post-date">{{ page.date | date_to_string }}</span>
+  <div class="flow">
     {{ content }}
   </div>
 </div>

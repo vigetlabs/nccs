@@ -17,6 +17,10 @@
     cursor: not-allowed; 
   }
 
+  &:hover, &:focus-visible {
+    text-decoration: none;
+  }
+
   &.-primary {
     background-color: $color-blue-800;
     color: $color-white;
@@ -73,6 +77,7 @@
 
     &:hover, &:focus {
       color: $color-blue-800;
+      text-decoration: underline;
     }
   }
 }
