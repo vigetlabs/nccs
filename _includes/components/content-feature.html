@@ -1,0 +1,42 @@
+{% comment %}
+Content Feature
+- header {String}
+- description {String}
+- ctaUrl {String (url)}
+- ctaText {String}
+- ctaIcon {String}
+- imageUrl {String (url)}
+- imageAlt {String}
+{% endcomment %}
+
+{% if include.ctaText %}
+  {% assign ctaText = include.ctaText %}
+{% else %}
+  {% assign ctaText = "Learn More" %}
+{% endif %}
+
+{% if include.ctaText %}
+  {% assign ctaIcon = include.ctaIcon %}
+{% else %}
+  {% assign ctaIcon = "" %}
+{% endif %}
+
+<div class="content-feature flow flow-1">
+  <h2>{{ include.header }}</h2>
+  <p>{{ include.description }}</p>
+
+  {% if include.imageUrl %}
+    <div class="content-feature__image">
+      <img src="{{ include.imageUrl }}" alt="{{ include.imageAlt }}">
+    </div>
+  {% endif %}
+
+  {% if include.ctaUrl %}
+    {% include components/button.html
+      href = include.ctaUrl
+      text = ctaText
+      icon = ctaIcon
+      style = "primary"
+    %}
+  {% endif %}
+</div>

@@ -22,8 +22,12 @@
   width: 50%;
 }
 
+.gap-sm {
+  gap: clamp(0.5em, 2vw, 1em)
+}
+
 .gap {
-  gap: clamp(1rem, 3vw, 2.5rem) 
+  gap: clamp(1em, 3vw, 2.5em) 
 }
 
 .m-0 {
@@ -54,8 +58,16 @@
   margin-block-start: 2em;
 }
 
-.mt-content {
+.mt-3 {
   margin-block-start: 3em;
+}
+
+.mt-4 {
+  margin-block-start: 4em;
+}
+
+.my-content {
+  margin-block: 4em;
 }
 
 .p-0 {

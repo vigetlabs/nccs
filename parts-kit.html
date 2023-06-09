@@ -5,7 +5,7 @@ permalink: /parts-kit/
 activeLink: /parts-kit/
 ---
 
-<div class="content text-center mt-content">
+<div class="content text-center">
   <h1>NCCS Parts Kit</h1>
   <p>This page contains demo site components. To see how to include on a page, <a href="{{ site.repository | append: "/blob/main/parts-kit.html"}}">view the template in the repo</a>.</p>
 </div>
@@ -296,4 +296,49 @@ activeLink: /parts-kit/
   %}
 </div>
 
-<div style="height: 5em;"></div>
+<div class="feature pb-1 border-b-blue flow-3">
+  <h2 class="m-0 p-0">Content Feature</h2>
+  <p>Intended to highlight a particular link or piece of content. Intended to sit in a <code>.content</code> container.</p>
+</div>
+
+
+<div class="content">
+  {% include components/content-feature.html
+    header = "Nullam quis risus eget urna mollis"
+    description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+    ctaUrl = "#"
+    ctaText = "Learn how to use NCCS data"
+    imageUrl = "https://placehold.co/855x555"
+    imageAlt = "A11y description"
+  %}
+</div>
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <h2 class="m-0 p-0">Filter Controls</h2>
+  <p>This only represents the control elements but does not add JavaScript functionality, see <code>index.html</code> for an example of a full implementation.</p>
+</div>
+
+{% assign sampleTerms = "one two three four" | split: " " %}
+
+
+{% include components/filter-controls.html
+  header = "Sample Filter Control"
+  termTitle = "term title"
+  terms = sampleTerms
+%}
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <h2 class="m-0 p-0">Card - Horizontal</h2>
+</div>
+
+<div class="content">
+  {% assign sampleDate = site.time %}
+
+  {% include components/card-horizontal.html
+    header = "Card Sample"
+    description = "Donec ullamcorper nulla non metus auctor fringilla."
+    href = "#"
+    date = sampleDate
+    categories = sampleTerms
+  %}
+</div>

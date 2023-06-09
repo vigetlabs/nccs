@@ -3,87 +3,65 @@ layout: default
 isFrontPage: true
 ---
 
-<div class="feature mt-content">
+<div class="feature">
+
+  {% assign image = "public/img/collage.png" | relative_url %}
   {% include components/hero.html
     header = "Welcome to the National Center for Charitable Statistics (NCCS) open data platform"
     description = "Consectetur atque culpa ad quidem ex? Deleniti atque error necessitatibus cumque quisquam. Fugit necessitatibus commodi eveniet."
     ctaUrl = "#"
     ctaText = "Hero CTA Link"
     ctaIcon = "external"
+    imageUrl = image
+    imageAlt = "A11y description"
+  %}
+</div>
+
+<div class="content text-center flow-4">
+  {% include components/content-feature.html
+    header = "Nullam quis risus eget urna mollis"
+    description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+    ctaUrl = "#"
+    ctaText = "Learn how to use NCCS data"
     imageUrl = "https://placehold.co/855x555"
     imageAlt = "A11y description"
   %}
 </div>
 
-<div class="content text-center">
-  <h2>Getting Started with NCCS Data</h2>
-  <p>Consectetur neque culpa officiis saepe adipisci. In corporis earum assumenda consequatur voluptatibus.</p>
-</div>
+<div class="filter full flow-4" data-module="filter">
 
-<h2>Datasets</h2>
-
-<p>Elit magni temporibus excepturi nemo voluptatibus Illum consequatur accusantium dolorum magni sapiente dolores. Fuga blanditiis ea eius enim itaque. Impedit deserunt excepturi possimus sapiente provident. Quis magni repellendus minus error.</p>
-
-<div class="posts">
   {% for post in site.datasets %}
-  <div class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-  </div>
+    {% for category in post.categories %}
+      {% capture all_categories %}
+        {% if all_categories %}
+          {{ all_categories | join: "," }},{{ category }}
+        {% else %}
+          {{ category }}
+        {% endif %}
+      {% endcapture %}
+    {% endfor %}
   {% endfor %}
-</div>
 
-<h2>Projects</h2>
+  {% assign all_categories = all_categories | split: "," | uniq %}
 
-<div class="projects">
-  {% for post in site.projects %}
-  <div class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-  </div>
-  {% endfor %}
-</div>
+  <div class="grid-content flow flow-2">
+    {% include components/filter-controls.html
+      header = "All Datasets"
+      termTitle = "category"
+      terms = all_categories
+    %}
 
-<h2>Publications</h2>
-
-<div class="posts">
-  {% for post in site.publications %}
-  <div class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-  </div>
-  {% endfor %}
-</div>
-
-<h2>Stories</h2>
-
-<div class="posts">
-  {% for post in site.stories %}
-  <div class="post">
-    <h2 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-  </div>
-  {% endfor %}
-</div>
-
-<div class="full filter" data-module="filter" style="background: blue; color: white;">
-  <div class="grid-inner-feature">
-    <h2>Filter</h2>
+    <div class="posts mt-4">
+      {% for post in site.datasets %}
+        {% assign postUrl = post.url | relative_url %}
+        {% include components/card-horizontal.html
+          header = post.title
+          description = post.description
+          date = post.date
+          href = postUrl
+          categories = post.categories
+        %}
+      {% endfor %}
+    </div>
   </div>
 </div>

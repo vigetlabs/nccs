@@ -1,0 +1,28 @@
+.select-overlay {
+  position: relative;
+  color: $color-blue-700;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0.625em;
+    top: 50%;
+    width: 0.5em;
+    height: 0.5em;
+    transform: translateY(-50%);
+    color: $color-blue-500;
+    background-image: url('../icon/dropdown-blue.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  select {
+    appearance: none;
+    background-color: $color-white;
+    padding: 0.5em 1.75em 0.5em 0.5em;
+    border: none;
+    color: $color-neutral-800;
+  }
+}
+
