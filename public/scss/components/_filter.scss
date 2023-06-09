@@ -1,0 +1,17 @@
+.filter__control {
+  padding-block: 2em;
+  background: $gradient-blue-horizontal;
+  color: $color-white;
+}
+
+.filter__select {
+  min-width: 15em;
+  background: $color-white;
+  padding: 0.5em 0.75em;
+  color: $color-neutral-800;
+  border: 0;
+}
+
+[data-filter-entry][data-active="false"] {
+  display: none;
+}

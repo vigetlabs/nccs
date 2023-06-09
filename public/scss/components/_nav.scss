@@ -8,6 +8,7 @@
   position: sticky;
   top: -1px;
   transition: padding $transition-speed-default $ease-out-quad;
+  z-index: 99;
 
   // allows transition over top of the gradient
   &:before {

@@ -1,0 +1,23 @@
+{% comment %}
+Filter Controls
+- header {String}
+- termTitle {String}
+- terms {Array}
+{% endcomment %}
+
+<div class="filter__control full" >
+  <div class="text-center flex flex-col items-center">
+    <h2 class="text-5xl">{{ include.header }}</h2>
+    <div class="flex gap-sm mt-1">
+      <div class="select-overlay">
+        <select id="filter-select" name="filter-select" class="select-overlay__input filter__select__input" data-filter-select>
+          <option value="">Filter by {{ include.termTitle }}</option>
+          {% for term in include.terms %}
+            <option value="{{ term | strip }}">{{ term | strip | capitalize }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button data-filter-clear class="btn -light">Clear</button>
+    </div>
+  </div>
+</div>

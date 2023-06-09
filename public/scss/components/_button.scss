@@ -3,7 +3,7 @@
   text-decoration: none;
   padding: 0.625em 0.875em;
   font-weight: 800;
-  transition: color $transition-speed-default $ease-out-quad, background-color $transition-speed-default $ease-out-quad, border-color $transition-speed-default $ease-out-quad;
+  transition: color $transition-speed-default $ease-out-quad, background-color $transition-speed-default $ease-out-quad, box-shadow $transition-speed-default $ease-out-quad;
   font-size: 0.9em;
   width: auto;
   display: inline-flex;
@@ -21,7 +21,7 @@
     background-color: $color-blue-800;
     color: $color-white;
 
-    &:hover, &:focus {
+    &:hover, &:focus-visible {
       background-color: $color-blue-700;
     }
 
@@ -35,11 +35,10 @@
     color: $color-blue-700;
     background-color: transparent;
 
-    &:hover {
+    &:hover, &:focus-visible {
       box-shadow: inset 0 0 0 2px $color-blue-800;
       background-color: $color-blue-800;
       color: $color-white;
-      border-color: $color-blue-800;
     }
 
     &[disabled] {
@@ -47,6 +46,24 @@
       color: $color-neutral-primary;
       background-color: transparent;
     }
+  }
+
+  &.-light {
+    box-shadow: inset 0 0 0 2px $color-white;
+    color: $color-white;
+    background-color: transparent;
+
+    &:hover, &:focus-visible {
+      box-shadow: inset 0 0 0 2px $color-yellow;
+      color: $color-yellow;
+    }
+
+    &[disabled] {
+      box-shadow: inset 0 0 0 2px $color-neutral-primary;
+      color: $color-neutral-primary;
+      background-color: transparent;
+    }
+
   }
 
   &.-text {
