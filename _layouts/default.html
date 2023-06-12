@@ -17,9 +17,11 @@
       {% assign grid = "grid-content" %}
     {% endif %}
 
-    <main id="main" class="{{ grid }} flow my-content">
+    <main id="main" class="{{ grid }} flow {% unless page.isFrontPage %}my-content{% endunless %}">
       {{ content }}
     </main>
+
+    {% include footer.html %}
 
     <script type="module" src="{{ site.baseurl }}/public/js/main.js"></script>
   </body>

@@ -39,6 +39,11 @@ code {
     monospace;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid $color-neutral-500;
+}
+
 // Flexible Grid
 // There are 4 sizes defined, starting from inward to outward:
 // content, popout, feature, full

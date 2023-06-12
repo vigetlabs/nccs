@@ -30,21 +30,55 @@ repository: "https://github.com/vigetlabs/nccs"
 twitter_username: 
 github_username:
 
-# Navigation Items
+# Top Navigation Items
 # Entries here will show up in the _includes/nav.html partial
 nav:
   - title: Data
     url: /datasets/
-  - title: Projects
-    url: /projects/
-  - title: Publications
-    url: /publications/
-  - title: Stories
-    url: /stories/
   - title: About
     url: /about/
   - title: Parts (temp)
     url: /parts-kit/
+
+# Footer Navigation Items
+# Entries here will show up in the _includes/footer.html partial
+footer_nav: 
+  - title: Privacy Policy
+    url: /privacy/
+  - title: Terms & Service
+    url: /terms/
+
+# Social Links
+# Entries here will show up in the _includes/footer.html partial in the social section
+# Current options: email, github, instagram, linkedin, reddit, twitter, youtube
+# 'service' key also doubles as the icon indicator
+social_links:
+  - service: twitter
+    url: '#'
+  - service: facebook
+    url: '#'
+  - service: github
+    url: '#'
+  - service: instagram
+    url: '#'
+  - service: linkedin
+    url: '#'
+  - service: reddit
+    url: '#'
+  - service: twitter
+    url: '#'
+  - service: youtube
+    url: '#'
+
+# Sidebar Dataset Links
+# Shows at the bottom of dataset sidebars
+
+sidebar_datasets_title: "How to Use this Data"
+sidebar_datasets_links:
+  - title: "User Guide"
+    url: "#"
+  - title: "Get Help"
+    url: "#"
 
 # Build settings
 sass:

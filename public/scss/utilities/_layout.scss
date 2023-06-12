@@ -1,3 +1,7 @@
+// AD-HOC utility classes for composing simple layouts without defining new classes
+// intentionally structured after Tailwind classes
+
+// FLEX
 .flex {
   display: flex;
 }
@@ -18,10 +22,6 @@
   align-items: center;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .gap-sm {
   gap: clamp(0.5em, 2vw, 1em)
 }
@@ -29,6 +29,21 @@
 .gap {
   gap: clamp(1em, 3vw, 2.5em) 
 }
+
+// POSITIONING
+
+.relative {
+  position: relative;
+}
+
+// WIDTH + HEIGHT
+
+.w-1\/2 {
+  width: 50%;
+}
+
+// MARGIN 
+// uses logical properties where possible
 
 .m-0 {
   margin: 0;
@@ -44,6 +59,10 @@
 
 .mb-2 {
   margin-block-end: 2em;
+}
+
+.mt-0 {
+  margin-block-start: 0;
 }
 
 .mt-1\/2 {
@@ -67,13 +86,65 @@
 }
 
 .my-content {
-  margin-block: 4em;
+  margin-block: 2em;
+
+  @include breakpoint(lg) {
+    margin-block: 4em;
+  }
 }
+
+.mt-content-cancel {
+  margin-block-start: -2em;
+
+  @include breakpoint(lg) {
+    margin-block-start: -4em;
+  }
+}
+
+.pt-content {
+  padding-block-start: 2em;
+
+  @include breakpoint(lg) {
+    padding-block-start: 4em;
+  }
+}
+
+// PADDING
+// uses logical properties where possible
 
 .p-0 {
   padding: 0;
 }
 
+.p-1 {
+  padding: 1em;
+}
+
 .pb-1 {
   padding-block-end: 1em;
 }
+
+.pb-4 {
+  padding-block-end: 4em;
+}
+
+// STACKING
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+// MISC
+
+.overflow-hidden {
+  overflow: hidden;
+}
+

@@ -1,23 +1,51 @@
 ---
 title: Datasets
+description: Cras mattis consectetur purus sit amet fermentum
 layout: default
 permalink: /datasets/
 activeLink: /datasets/
 ---
 
-<div class="content">
-  <h1>Datasets Index</h1>
 
-  <div class="posts">
-    {% for post in site.datasets %}
-    <div class="post">
-      <h2 class="post-title">
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title }}
-        </a>
-      </h2>
-      <span class="post-date">{{ post.date | date_to_string }}</span>
-    </div>
+<div class="feature text-center flow">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description }}</p>
+</div>
+
+<div class="filter full flow-4" data-module="filter">
+
+  {% for post in site.datasets %}
+    {% for category in post.categories %}
+      {% capture all_categories %}
+        {% if all_categories %}
+          {{ all_categories | join: "," }},{{ category }}
+        {% else %}
+          {{ category }}
+        {% endif %}
+      {% endcapture %}
     {% endfor %}
+  {% endfor %}
+
+  {% assign all_categories = all_categories | split: "," | uniq %}
+
+  <div class="grid-content flow flow-2">
+    {% include components/filter-controls.html
+      header = "All Datasets"
+      termTitle = "category"
+      terms = all_categories
+    %}
+
+    <div class="posts mt-4">
+      {% for post in site.datasets %}
+        {% assign postUrl = post.url | relative_url %}
+        {% include components/card-horizontal.html
+          header = post.title
+          description = post.description
+          date = post.date
+          href = postUrl
+          categories = post.categories
+        %}
+      {% endfor %}
+    </div>
   </div>
 </div>

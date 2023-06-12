@@ -1,6 +1,7 @@
 ---
 title: About NCCS
 layout: page
+permalink: /about/
 activeLink: /about/
 ---
 
