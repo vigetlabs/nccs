@@ -35,8 +35,17 @@ h5, .text-xl {
   @include fluid-font(18, 20);
 }
 
+.text-reg {
+  @include fluid-font(16, 20);
+}
+
 .text-sm {
-  font-size: 0.75em;
+  @include fluid-font(14, 18);
+}
+
+.text-xs {
+  // font-size: 0.625em;
+  @include fluid-font(14, 16);
 }
 
 .font-bold {

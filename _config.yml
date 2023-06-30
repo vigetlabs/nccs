@@ -35,6 +35,8 @@ github_username:
 nav:
   - title: Data
     url: /datasets/
+  - title: Resources
+    url: /resources/
   - title: About
     url: /about/
   - title: Parts (temp)
@@ -89,8 +91,8 @@ plugins:
 # Feed settings
 feed:
   collections:
-    - projects
     - datasets
+    - resources
     - stories
 
 # Set defaults per collection type so they don't have to be specifed each time
@@ -103,10 +105,10 @@ defaults:
   -
     scope:
       path: ""
-      type: "projects" # collection type
+      type: "resources" # collection type
     values:
-      layout: "project" # overrides previous default layout
-      activeLink: "/projects/"
+      layout: "resource" # overrides previous default layout
+      activeLink: "/resources/"
   -
     scope:
       path: ""
@@ -122,15 +124,9 @@ defaults:
       layout: "dataset"
       grid: "sidebar"
       activeLink: "/datasets/"
-  -
-    scope:
-      path: ""
-      type: "publications"
-    values:
-      layout: "publication"
-      activeLink: "/publications/"
 
 # Collections
+# Controls the content output, each is it's own content type
 collections:
   stories:
     output: true
@@ -138,10 +134,7 @@ collections:
   datasets:
     output: true
     permalink: /:collection/:name/
-  projects:
-    output: true
-    permalink: /:collection/:name/
-  publications:
+  resources:
     output: true
     permalink: /:collection/:name/
 

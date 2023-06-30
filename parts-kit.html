@@ -217,7 +217,7 @@ sampleLinks:
 <div class="feature flex flex-wrap gap">
 
 
-  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo minus open pdf play plus preview reddit rss search twitter video visibility youtube" | split: " " %}
+  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo minus open pdf play plus preview project reddit rss search twitter video visibility youtube" | split: " " %}
 
   {% for icon in icons %}
     <div class="flex flex-col items-center">
@@ -266,6 +266,21 @@ sampleLinks:
   <div>
     <h3 class="text-xl">Nulla vitae elit libero, a pharetra augue.</h3>
     <code class="border-pill text-sm">.text-xl</code>
+  </div>
+
+  <div>
+    <p class="text-reg">Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <code class="border-pill text-sm">.text-reg</code>
+  </div>
+
+  <div>
+    <p class="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+    <code class="border-pill text-sm">.text-sm</code>
+  </div>
+
+  <div>
+    <p class="text-xs">Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+    <code class="border-pill text-sm">.text-xs</code>
   </div>
 
   <hr>
@@ -332,13 +347,13 @@ sampleLinks:
 </div>
 
 <div class="feature pb-1 border-b-blue flow-3">
-  <h2 class="m-0 p-0">Content Feature</h2>
+  <h2 class="m-0 p-0">Content CTA</h2>
   <p>Intended to highlight a particular link or piece of content. Intended to sit in a <code>.content</code> container.</p>
 </div>
 
 
 <div class="content">
-  {% include components/content-feature.html
+  {% include components/content-cta.html
     header = "Nullam quis risus eget urna mollis"
     description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
     ctaUrl = "#"
@@ -357,17 +372,31 @@ sampleLinks:
 
 
 {% include components/filter-controls.html
-  header = "Sample Filter Control"
-  termTitle = "term title"
-  terms = sampleTerms
+  header = "Light Filter Control"
+  categoryTitle = "term title"
+  categories = sampleTerms
+  typeTitle = "type title"
+  types = sampleTerms
+  style = "light"
+%}
+
+{% include components/filter-controls.html
+  header = "Dark Filter Control"
+  categoryTitle = "term title"
+  categories = sampleTerms
+  typeTitle = "type title"
+  types = sampleTerms
+  style = "dark"
 %}
 
 <div class="feature pb-1 border-b-blue flow-3">
   <h2 class="m-0 p-0">Card - Horizontal</h2>
 </div>
 
+{% assign sampleTypes = "type1 type2" | split: " " %}
+{% assign sampleDate = site.time %}
+
 <div class="content">
-  {% assign sampleDate = site.time %}
 
   {% include components/card-horizontal.html
     header = "Card Sample"
@@ -375,7 +404,38 @@ sampleLinks:
     href = "#"
     date = sampleDate
     categories = sampleTerms
+    type = sampleTypes
   %}
+</div>
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <h2 class="m-0 p-0">Card - Vertical</h2>
+</div>
+
+<div class="content">
+  {% assign sampleDate = site.time %}
+
+  <div class="flex flex-col gap" style="max-width: 20em; margin: 0 auto;">
+  {% include components/card-vertical.html
+    eyebrow = sampleTypes
+    header = "Vertical Card Text Only"
+    description = "Donec ullamcorper nulla non metus auctor fringilla."
+    href = "#"
+    date = sampleDate
+    categories = sampleTerms
+    type = sampleTypes
+  %}
+
+  {% include components/card-vertical.html
+    header = "Vertical Card Icon, No Eyebrow"
+    description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam."
+    icon = "project"
+    href = "#"
+    date = sampleDate
+    categories = sampleTerms
+    type = sampleTypes
+  %}
+  </div>
 </div>
 
 <div class="feature pb-1 border-b-blue flow-3">

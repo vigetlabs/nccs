@@ -21,7 +21,7 @@ isFrontPage: true
 
   <div class="content text-center flow-4 relative bg-white-gradient-center">
     <div class="relative z-1">
-      {% include components/content-feature.html
+      {% include components/content-cta.html
         header = "Nullam quis risus eget urna mollis"
         description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         ctaUrl = "#"
@@ -35,15 +35,12 @@ isFrontPage: true
 
 <div class="filter full mt-0" data-module="filter">
 
+  {% comment %}
+    Build array of categories, whitespace matters in captures!
+  {% endcomment %}
   {% for post in site.datasets %}
     {% for category in post.categories %}
-      {% capture all_categories %}
-        {% if all_categories %}
-          {{ all_categories | join: "," }},{{ category }}
-        {% else %}
-          {{ category }}
-        {% endif %}
-      {% endcapture %}
+      {% capture all_categories %}{% if all_categories %}{{ all_categories }},{{ category }}{% else %}{{ category }}{% endif %}{% endcapture %}
     {% endfor %}
   {% endfor %}
 
@@ -52,11 +49,12 @@ isFrontPage: true
   <div class="grid-content flow flow-2">
     {% include components/filter-controls.html
       header = "All Datasets"
-      termTitle = "category"
-      terms = all_categories
+      categoryTitle = "category"
+      categories = all_categories
+      style = "dark"
     %}
 
-    <div class="posts mt-4">
+    <div class="posts mt-4" data-filter-entry-section>
       {% for post in site.datasets %}
         {% assign postUrl = post.url | relative_url %}
         {% include components/card-horizontal.html
@@ -67,6 +65,9 @@ isFrontPage: true
           categories = post.categories
         %}
       {% endfor %}
+      <div data-filter-null data-active="false" class="mb-3 text-center color-neutral-800">
+        Sorry, no results in datasets.
+      </div>
     </div>
   </div>
 </div>
