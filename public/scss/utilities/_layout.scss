@@ -23,11 +23,19 @@
 }
 
 .gap-sm {
-  gap: clamp(0.5em, 2vw, 1em)
+  gap: clamp(0.5em, 2vw, 1em);
 }
 
 .gap {
-  gap: clamp(1em, 3vw, 2.5em) 
+  gap: clamp(1em, 3vw, 2em);
+}
+
+.gap-lg {
+  gap: clamp(2em, 4vw, 2.5em);
+}
+
+.block {
+  display: block;
 }
 
 // POSITIONING
@@ -42,7 +50,7 @@
   width: 50%;
 }
 
-// MARGIN 
+// MARGIN
 // uses logical properties where possible
 
 .m-0 {
@@ -53,12 +61,20 @@
   margin-block-end: 0;
 }
 
+.mb-1\/2 {
+  margin-block-end: 0.5em;
+}
+
 .mb-1 {
   margin-block-end: 1em;
 }
 
 .mb-2 {
   margin-block-end: 2em;
+}
+
+.mb-3 {
+  margin-block-end: 3em;
 }
 
 .mt-0 {
@@ -147,4 +163,3 @@
 .overflow-hidden {
   overflow: hidden;
 }
-

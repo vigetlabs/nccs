@@ -1,9 +1,48 @@
 .content-feature {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+
+  @include breakpoint(md) {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
-.content-feature__image {
-  max-width: 15em;
-  margin-left: auto;
-  margin-right: auto;
+.content-feature__main {
+  aspect-ratio: 16/9;
+  background: linear-gradient(
+    53deg,
+    $color-yellow 5.89%,
+    #{"hsla(199, 73%, 40%, 1)"} 25.52%,
+    #{"hsla(199, 82%, 39%, 1)"} 67.19%,
+    #{"hsla(199, 86%, 39%, 1)"} 97.75%
+  );
+  color: $color-white;
+  padding: 3em;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.content-feature__main__link {
+  text-decoration: none;
+  color: $color-white;
+}
+
+.content-feature__main__link:hover {
+  text-decoration: none;
+  color: $color-white;
+}
+
+.content-feature__main__link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.content-feature__aside > * + * {
+  padding-block-start: 2rem;
+  margin-block-start: 2rem;
+  border-top: 1px solid $color-divider;
 }
