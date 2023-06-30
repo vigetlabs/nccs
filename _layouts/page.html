@@ -2,8 +2,9 @@
 layout: default
 ---
 
-<div class="feature text-center">
-  <h1>{{ page.title }}</h1>
-</div>
+{% include components/page-header.html
+  header = page.title
+  description = page.description
+%}
 
 {{ content }}

@@ -1,0 +1,12 @@
+{% comment %}
+Page Header
+- header {String}
+- description {String}
+{% endcomment %}
+
+<div class="content text-center flow">
+  <h1 class="text-5xl">{{ include.header }}</h1>
+  {% if include.description %}
+    <p class="text-2xl font-light">{{ include.description }}</p>
+  {% endif %}
+</div>

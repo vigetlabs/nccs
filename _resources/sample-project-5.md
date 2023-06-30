@@ -1,6 +1,14 @@
 ---
-title: Project Sample
-date: 2023-05-28 12:00:00
+title: Project Sample Fifth No Order
+description: Curabitur blandit tempus porttitor.
+date: 2023-05-05 12:00:00
+featured: true
+featuredOrder: 10
+type: brief
+categories:
+  - dog
+  - lorem
+  - roqueforti
 ---
 
 Testing out the project collection.

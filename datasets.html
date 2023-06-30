@@ -6,36 +6,39 @@ permalink: /datasets/
 activeLink: /datasets/
 ---
 
+{% include components/page-header.html
+  header = page.title
+  description = page.description
+%}
 
-<div class="feature text-center flow">
-  <h1>{{ page.title }}</h1>
-  <p>{{ page.description }}</p>
-</div>
+{% comment %} 
+  FILTERS
+  Because of the work needed to set up, the filters cannot be fully componentized
+{% endcomment %}
 
 <div class="filter full flow-4" data-module="filter">
 
+  {% comment %}
+    Build array of categories and types, whitespace matters in captures!
+  {% endcomment %}
   {% for post in site.datasets %}
     {% for category in post.categories %}
-      {% capture all_categories %}
-        {% if all_categories %}
-          {{ all_categories | join: "," }},{{ category }}
-        {% else %}
-          {{ category }}
-        {% endif %}
-      {% endcapture %}
+      {% capture all_categories %}{% if all_categories %}{{ all_categories | join: "," }},{{ category }}{% else %}{{ category }}{% endif %}{% endcapture %}
     {% endfor %}
   {% endfor %}
 
   {% assign all_categories = all_categories | split: "," | uniq %}
 
+  {% comment %}
+    Omitting type since all are assumed to be 'dataset'
+  {% endcomment %}
   <div class="grid-content flow flow-2">
     {% include components/filter-controls.html
-      header = "All Datasets"
-      termTitle = "category"
-      terms = all_categories
+      categoryTitle = "category"
+      categories = all_categories
     %}
 
-    <div class="posts mt-4">
+    <div class="posts mt-4" data-filter-entry-section>
       {% for post in site.datasets %}
         {% assign postUrl = post.url | relative_url %}
         {% include components/card-horizontal.html
@@ -46,6 +49,11 @@ activeLink: /datasets/
           categories = post.categories
         %}
       {% endfor %}
+
+      {% comment %} No result message {% endcomment %}
+      <div data-filter-null data-active="false" class="col-span-3 text-center color-neutral-800">
+        Sorry, no results in Datasets. Please try widening your filter criteria.
+      </div>
     </div>
   </div>
 </div>
