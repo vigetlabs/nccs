@@ -9,6 +9,12 @@ categories:
   - cat
   - lorem
   - provolone
+links:
+- text: "Link 1"
+  href: "#"
+- text: "Link 2"
+  href: "#"
+  icon: "reddit"
 ---
 
 Testing out the project collection.

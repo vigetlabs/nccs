@@ -70,6 +70,26 @@
 
   }
 
+  &.-tertiary {
+    color: $color-blue-700;
+    box-shadow: inset 0 0 0 2px $color-blue-700;
+    background-color: transparent;
+    text-transform: none;
+    padding: 0.5em 0.75em;
+
+    &:hover, &:focus-visible {
+      box-shadow: inset 0 0 0 2px $color-blue-700;
+      background-color: $color-blue-700;
+      color: $color-white;
+    }
+
+    &[disabled] {
+      box-shadow: inset 0 0 0 2px $color-neutral-primary;
+      color: $color-neutral-primary;
+      background-color: transparent;
+    }
+  }
+
   &.-text {
     padding: 0;
     color: $color-link;
@@ -78,6 +98,12 @@
     &:hover, &:focus {
       color: $color-blue-800;
       text-decoration: underline;
+    }
+
+    &[disabled] {
+      color: $color-neutral-primary;
+      background-color: transparent;
+      text-decoration: none;
     }
   }
 }
