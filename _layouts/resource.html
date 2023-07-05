@@ -80,7 +80,7 @@ layout: default
   %}
 
   <div class="grid-cols-3 gap mt-2">
-    {% assign resources = site.resources | sort: "date" | reverse %}
+    {% assign resources = site.resources | where_exp: "item", "item.url != page.url" | sort: "date" | reverse %}
     {% for post in resources limit: "3" %}
       {% assign url = post.url | relative_url %}
       {% include components/card-vertical.html
