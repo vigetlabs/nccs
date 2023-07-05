@@ -53,7 +53,7 @@ layout: default
 {% if page.citation %}
 <div class="content flex flow flex-col">
 {% for citation in page.citation %}
-  <div class="flow-1/2">
+  <div class="flow flow-1/2">
   {% include components/button.html
     text = "Copy Citation"
     href = citation.href
@@ -72,4 +72,25 @@ layout: default
 
 <div class="content flow">
   {{ content }}
+</div>
+
+<div class="feature flow-3">
+  {% include components/divider.html
+    header = "More Resources"
+  %}
+
+  <div class="grid-cols-3 gap mt-2">
+    {% assign resources = site.resources | sort: "date" | reverse %}
+    {% for post in resources limit: "3" %}
+      {% assign url = post.url | relative_url %}
+      {% include components/card-vertical.html
+        eyebrow = post.type
+        header = post.title
+        description = post.description
+        href = url
+        categories = post.categories
+      %}
+    {% endfor %}
+
+  </div>
 </div>
