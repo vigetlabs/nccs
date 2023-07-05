@@ -2,10 +2,74 @@
 layout: default
 ---
 
-<span>Resource Layout</span>
+{% if page.type %}
+  {% assign type = page.type %}
+{% else %}
+  {% assign type = "resource" %}
+{% endif %}
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+{% if page.authors %}
+  {% assign authors = page.authors | join: ", " %}
+{% endif %}
+
+{% assign date = page.date | date: "%B %d, %Y" %}
+
+
+{% include components/page-header.html
+  eyebrow = type
+  header = page.title
+  subheader = authors
+  date = date
+  class = "mb-3"
+%}
+
+{% if page.abstract %}
+<div class="content flow">
+{% include components/divider.html
+  header = "Abstract"
+  style = "secondary"
+%}
+{% for paragraph in page.abstract %}
+ {{ paragraph | markdownify }}
+{% endfor %}
+</div>
+{% endif %}
+
+{% if page.links %}
+<div class="content flow flex flex-col">
+{% for link in page.links %}
+  <div class="flow-1/2">
+  {% include components/button.html
+    text = link.text
+    href = link.href
+    icon = link.icon
+    style = "tertiary"
+  %}
+  </div>
+{% endfor %}
+</div>
+{% endif %}
+
+{% if page.citation %}
+<div class="content flex flow flex-col">
+{% for citation in page.citation %}
+  <div class="flow-1/2">
+  {% include components/button.html
+    text = "Copy Citation"
+    href = citation.href
+    icon = "files"
+    style = "tertiary"
+  %}
+  <p class="font-italic text-sm">{{ citation.text }}</p>
+  </div>
+{% endfor %}
+</div>
+{% endif %}
+
+{% if page.abstract or page.links or page.citation %}
+<hr>
+{% endif %}
+
+<div class="content flow">
   {{ content }}
 </div>

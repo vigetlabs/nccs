@@ -3,6 +3,12 @@ Divider
 - header {String}
 {% endcomment %}
 
-<div class="divider">
+{% if include.style %}
+  {% assign style = include.style %}
+{% else %}
+  {% assign style = "primary" %}
+{% endif %}
+
+<div class="divider -{{style}}">
   <span class="divider__title">{{ include.header }}</span>
 </div>

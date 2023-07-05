@@ -23,7 +23,7 @@ activeLink: /resources/
     <div class="content-feature mt-2">
       <div class="content-feature__main">
         <div class="content-feature__main__text flow flow-1">
-          <div class="text-sm uppercase">Eyebrow</div>
+          <div class="text-sm uppercase">{{ featured.type | join: " " }}</div>
           <h2 class="text-5xl mt-0">
             <a href="{{ featured.url | relative_url }}" class="content-feature__main__link">{{ featured.title }}</a>
           </h2>
@@ -33,10 +33,11 @@ activeLink: /resources/
 
       <div class="content-feature__aside">
       {% for post in featured_posts offset:1 %}
+        {% assign url = post.url | relative_url %}
         {% include components/card-vertical.html
           eyebrow = post.type
           header = post.title
-          href = post.url
+          href = url
         %}
       {% endfor %}
       </div>
@@ -86,11 +87,13 @@ activeLink: /resources/
     <div class="grid-cols-3 gap-lg mt-2" data-filter-entry-section>
       {% for post in projects %}
         {% assign url = post.url | relative_url %}
+        {% assign iconIndex = forloop.index | modulo: 3 %}
         {% include components/card-vertical.html
           header = post.title
           description = post.description
           href = url
           icon = "project"
+          iconIndex = iconIndex
           categories = post.categories
           type = post.type
         %}
@@ -108,12 +111,12 @@ activeLink: /resources/
     
     {% assign resources = site.resources | where_exp: "post", "post.type != 'project'" | reverse %}
 
-
     <div class="grid-cols-3 gap-lg mt-2" data-filter-entry-section>
       {% for post in resources %}
         {% assign url = post.url | relative_url %}
+        {% assign eyebrow = post.type | join: " " %}
         {% include components/card-vertical.html
-          eyebrow = post.type
+          eyebrow = eyebrow
           header = post.title
           description = post.description
           href = url
