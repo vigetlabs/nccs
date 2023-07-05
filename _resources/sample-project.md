@@ -13,14 +13,14 @@ abstract:
 - Lorem soluta laborum omnis quae excepturi. Sit nisi qui iure inventore ab. Soluta voluptatibus odit libero blanditiis optio. Cumque voluptatem molestias ex fugit praesentium. Rem temporibus ex quidem rerum in.
 links:
 - text: Testing
-  href: #
+  href: https://www.google.com/
   icon: pdf
 - text: More testing
-  href: #
+  href: https://duckduckgo.com/
   icon: download
 citation:
 - text: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham. DOI:10.1111/josi.12122"
-  href: #
+  href: https://neal.fun/password-game/
 categories:
   - cat
   - dog
