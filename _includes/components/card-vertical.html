@@ -10,6 +10,16 @@ Card Vertical
 - type {Array}
 {% endcomment %}
 
+{% if include.iconIndex == 0 %}
+  {% assign iconName = "project-bar" %}
+{% elsif include.iconIndex == 1 %}
+  {% assign iconName = "project-line" %}
+{% elsif include.iconIndex == 2 %}
+  {% assign iconName = "project-database" %}
+{% else %}
+  {% assign iconName = "project-bar" %}
+{% endif %}
+
 <div class="card-vertical" data-filter-entry data-filter-categories="{{ include.categories | join: " " | downcase }}" data-filter-type="{{ include.type | join: " " | downcase }}" data-active="true">
   {% if include.eyebrow %}
     <div class="text-xs uppercase color-neutral-800 mb-1/2 font-normal flex gap-sm">
@@ -20,7 +30,7 @@ Card Vertical
   <div class="card-vertical__icon" seed="{{ include.date | date_to_string }}">
     <a class="link-inset block" href="{{ include.href }}">
       {% include components/svg.html
-        filename = include.icon
+        filename = iconName
         width = "2em"
       %}
     </a>

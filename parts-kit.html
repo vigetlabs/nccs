@@ -148,6 +148,36 @@ sampleLinks:
     %}
   </div>
 
+  <h3 class="mb-0">Tertiary</h3>
+
+  <div class="flex gap">
+    {% include components/button.html
+      text = "Tertiary"
+      href = "#"
+      style = "tertiary"
+    %}
+
+    {% include components/button.html
+      text = "Tertiary with Icon"
+      href = "#"
+      style = "tertiary"
+      icon = "files"
+    %}
+
+    {% include components/button.html
+      text = "Tertiary as Button"
+      tag = "button"
+      style = "tertiary"
+    %}
+
+    {% include components/button.html
+      text = "Tertiary Disabled"
+      href = "#"
+      style = "tertiary"
+      disabled = true
+    %}
+  </div>
+
   <h3 class="mb-0">Text</h3>
 
   <div class="flex gap">
@@ -229,6 +259,24 @@ sampleLinks:
     </div>
   {% endfor %}
 </div>
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <div class="flow flow-1">
+    <h2 class="m-0 p-0">Dividers</h2>
+  </div>
+</div>
+
+<div class="flow">
+  {% include components/divider.html
+    header = "Primary"
+  %}
+
+  {% include components/divider.html
+    header = "Secondary"
+    style = "secondary"
+  %}
+</div>
+
 
 <div class="feature pb-1 border-b-blue flow-3">
   <div class="flow flow-1">

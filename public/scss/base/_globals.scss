@@ -41,6 +41,8 @@ code {
 }
 
 hr {
+  display: block;
+  width: 100%;
   border: 0;
   border-top: 1px solid $color-neutral-500;
 }

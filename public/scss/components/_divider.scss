@@ -3,6 +3,10 @@
   width: 100%;
   background-color: $color-divider;
   position: relative;
+
+  &.-secondary {
+    color: $color-blue-700;
+  }
 }
 
 .divider__title {
