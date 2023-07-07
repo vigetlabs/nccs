@@ -1,0 +1,31 @@
+{% comment %}
+Content Feature
+- entries {Array}
+{% endcomment %}
+
+{% assign featured = include.entries | first %}
+
+{% if include.entries and include.entries.size != 0 %}
+  <div class="content-feature mt-2">
+    <div class="content-feature__main">
+      <div class="content-feature__main__text flow flow-1">
+        <div class="text-sm uppercase">{{ featured.type | join: " " }}</div>
+        <h2 class="text-5xl mt-0">
+          <a href="{{ featured.url | relative_url }}" class="content-feature__main__link">{{ featured.title }}</a>
+        </h2>
+        <p>{{ featured.description }}</p>
+      </div>
+    </div>
+
+    <div class="content-feature__aside">
+      {% for post in featured_posts offset:1 %}
+        {% assign url = post.url | relative_url %}
+        {% include components/card-vertical.html
+          eyebrow = post.type
+          header = post.title
+          href = url
+        %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

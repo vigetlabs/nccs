@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -21,7 +23,8 @@ a {
   transition: color $transition-speed-default $ease-out-quad;
   text-decoration: none;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: $color-link-hover;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -29,8 +32,13 @@ a {
   }
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1em;
+}
+
+pre {
+  padding: 1em;
 }
 
 code {
@@ -47,6 +55,28 @@ hr {
   border-top: 1px solid $color-neutral-500;
 }
 
+table {
+  width: 100%;
+  vertical-align: top;
+  border-color: $color-divider;
+  border-collapse: collapse;
+}
+
+thead {
+  vertical-align: bottom;
+}
+
+th, td {
+  padding: 0.5rem 0.5rem;
+  color: $color-text;
+  border-bottom-width: 1px;
+  border-color: inherit;
+}
+
+table>:not(:first-child) {
+    border-top: 2px solid currentColor;
+}
+
 // Flexible Grid
 // There are 4 sizes defined, starting from inward to outward:
 // content, popout, feature, full
@@ -61,7 +91,7 @@ hr {
   grid-template-columns: [full-start] #{$grid-full} [content-start] #{$grid-content} [content-end] #{$grid-full} [full-end];
 
   @include breakpoint(md) {
-    grid-template-columns: [full-start] #{$grid-full} [sidebar-start] #{$grid-sidebar} [sidebar-end gap-start] #{$grid-sidebar-gap} [gap-stop content-start] #{$grid-sidebar-content} [content-end] #{$grid-full} [full-end];
+    grid-template-columns: [sidebar-start] #{$grid-sidebar} [sidebar-end full-start] #{$grid-full} [content-start] #{$grid-sidebar-content} [content-end] #{$grid-full} [full-end];
   }
 }
 
@@ -81,7 +111,6 @@ hr {
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
-
 
 .grid-feature {
   display: grid;

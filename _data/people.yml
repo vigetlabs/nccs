@@ -1,0 +1,34 @@
+# Teams templated: executive, leadership, member/unspecified
+- name: Mihaja Randriamahazomana
+  title: Wizard of Light Bulb Moments
+  bio: Ipsum vitae voluptas aliquam molestiae autem libero! Nemo aut distinctio delectus corporis error Facere repellendus suscipit eos autem repellendus Dignissimos porro commodi ad fuga cupiditate architecto. Quam rerum voluptates quo.
+  team: executive
+  organization: Harris, Quigley and Feeney
+  photo: https://placehold.co/300x300
+  social:
+    - name: linkedin
+      url: #
+    - name: twitter
+      url: #
+- name: Amalie Rösler
+  title: Rainmaker
+  bio: Elit officiis temporibus aperiam animi illum Libero perferendis minima reiciendis fugit recusandae. Sunt ipsum at porro dolores reprehenderit. Quos assumenda qui ab natus quo, tempora! Impedit laboriosam ut sed praesentium.
+  team: leadership
+  organization: Hook Acoustics
+  photo: https://placehold.co/300x300
+  social:
+    - name: linkedin
+      url: #
+    - name: twitter
+      url: #
+- name: John Doe
+  title: International Man of Mystery
+  bio: Consectetur sint nemo nihil reprehenderit eius sed eligendi sint alias quod.
+  team: leadership
+  organization: Classified
+  photo: https://placehold.co/300x300
+  social:
+    - name: linkedin
+      url: #
+    - name: twitter
+      url: #

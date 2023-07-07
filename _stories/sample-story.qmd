@@ -1,0 +1,131 @@
+---
+title: Story Sample
+date: 2023-05-29 12:00:00
+description: Amet amet maxime sit neque cumque Maxime explicabo maxime est accusamus exercitationem ad Dolor nulla ipsum rem nemo ab deserunt eligendi quas hic Quo impedit vel perspiciatis quam.
+featured: true
+featuredOrder: 1
+type: test type
+categories:
+- flamingos
+- zebras
+- antelopes
+authors:
+- John Doe
+- Amalie Rösler
+myCitation:
+- 
+  text: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham. DOI:10.1111/josi.12122"
+  href: https://neal.fun/password-game/
+links:
+  -
+    header: Data
+    links:
+    - text: Test
+      href: #
+      icon: download
+  -
+    header: Tools
+    links:
+    - text: View Data
+      href: #
+      icon: download
+---
+
+Testing out the stories collection.
+
+Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+```{r}
+#| label: load-pkgs
+#| code-summary: "Packages"
+#| message: false
+#| warning: false
+#| echo: false
+
+library(tidyverse)  # for data wrangling and visualization
+library(knitr)      # for tables
+library(broom)      # for model summary
+#| library(urbnthemes) # for ggplot2 theme
+
+#| set_urbn_defaults(style = "print")
+
+```
+
+### Data Visualization {#sec-dataviz}
+
+Quarto works well with `library(urbnthemes)` -- the Urban Institute's R data visualization theme. 
+
+Consider an examples using the `cars` dataset, which contains `speed` and `dist` for `r nrow(cars)`. @fig-histogram shows two histograms displaying the distributions of `speed` and `dist` individually.
+
+```{r}
+#| label: fig-histogram
+#| fig-cap: "Histograms of individual variables"
+#| fig-subcap:
+#|   - "Histogram of `speed`s"
+#|   - "Histogram of `dist`s" 
+#| layout-ncol: 2
+
+ggplot(cars, aes(x = speed)) +
+  geom_histogram(bins = 15) +
+  labs(title = "Histogram of speeds")
+
+ggplot(cars, aes(x = dist)) +
+  geom_histogram(bins = 15) +
+  labs(title = "Histogram of distances")
+
+```
+
+### Data Tables {#sec-tables}
+
+The default for df-print is kable. This is the only type of table that works with the table references. kable works well until there is tons of data, where paged thrives. 
+
+@tbl-stats-kable displays basic summary statistics for these two variables.
+
+```{r}
+#| label: tbl-stats-kable
+#| tbl-cap: "Summary statistics for speed and dist (kable)"
+
+cars %>%
+  summarise(
+    `Median speed` = median(speed),
+    `IQR speed` = IQR(speed),
+    `Median dist` = median(dist),
+    `IQR dist` = IQR(dist),
+    `Correlation, r` = cor(speed, dist)
+  ) %>%
+  kable(digits = c(0, 0, 0, 0, 2))
+
+```
+
+### Diagrams {#sec-diagrams}
+
+Quarto has access to Mermaid and Graphviz for creating diagrams. Here is a simple example from the [Quarto documentation](https://quarto.org/docs/authoring/diagrams.html):
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+Graphviz
+
+```{dot}
+graph G {
+  layout=neato
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```

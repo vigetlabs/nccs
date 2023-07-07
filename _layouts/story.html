@@ -1,11 +1,21 @@
 ---
 layout: default
+grid: sidebar
+noContentMargin: true
 ---
 
-<span>Story Layout</span>
+{% assign date = page.date | date: "%B %d, %Y" %}
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
+{% include sidebar.html
+  header = page.title
+  date = date
+  authors = page.authors
+  links = page.links
+  citation = page.citation
+%}
+
+<div class="content mt-3 mb-3">
+  <div class="flow">
+    {{ content }}
+  </div>
 </div>

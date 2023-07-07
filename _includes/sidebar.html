@@ -15,7 +15,11 @@ SIDEBAR
 {% endcomment %}
 
 <aside class="sidebar flow">
-  <h1>{{ include.header }}</h1>
+  <h1 class="mt-0">{{ include.header }}</h1>
+
+  {% if include.date %}
+    <p class="text-sm">{{ include.date }}</p>
+  {% endif %}
 
   {% if include.downloadUrl %}
     {% include components/button.html
@@ -49,41 +53,90 @@ SIDEBAR
     </div>
   {% endif %}
 
-  <hr>
-
-  {% comment %}
-  Sidebar Secondary Links
-  These links are set at the layout level, and may pull from global data in _config.yml
-  {% endcomment %}
-
-  <p class="text-xl font-bold">{{ include.sidebarSecondaryLinksTitle }}</p>
-
-  <div class="flex flex-col flow mt-1 flow-1/2">
-    {% for link in include.sidebarSecondaryLinks %}
-      <div>
-        {% include components/button.html
-          text = link.title
-          href = link.href
-          style = "secondary"
-        %}
+  {% if include.citation %}
+    <hr>
+    {% for citation in page.citation %}
+      <div class="flow flow-1/2">
+      {% include components/button.html
+        text = "Copy Citation"
+        href = citation.href
+        icon = "files"
+        style = "tertiary"
+      %}
+      <div class="font-italic text-sm">
+        {{ citation.text | markdownify }}
       </div>
     {% endfor %}
-  </div>
+  {% endif %}
 
-  {% if include.citationUrl or include.citation %}
+  {% if include.authors %}
     <hr>
+
+    {% for author in page.authors %}
+      {% assign authorBio = nil %}
+      {% assign authorPhoto = nil %}
+      {% for person in site.data.people %}
+        {% if person.name == author %}
+          {% assign authorPhoto = person.photo %}
+          {% assign authorBio = person.bio %}
+        {% endif %}
+      {% endfor %}
+      <div class="flex gap-xs items-center">
+        {% if authorPhoto %}
+        <div class="sidebar__author__photo">
+          <img src="{{ authorPhoto }}" alt="Portrait of {{ author }}">
+        </div>
+        {% endif %}
+        <span class="font-bold">{{ author }}</span>
+      </div>
+      <div class="text-xs">
+        {{ authorBio }}
+      </div>
+    {% endfor %}
   {% endif %}
 
-  {% if include.citationUrl %}
-    {% include components/button.html
-      text = "Copy Citation"
-      style = "text"
-      icon = "external"
-    %}
+  {% if include.links %}
+  <hr>
+  <div class="flex flex-col flow mt-1 flow-1">
+    {% for section in include.links %}
+      {% if section.header %}
+        <p class="font-bold text-xl">{{ section.header }}</p>
+      {% endif %}
+      {% for link in section.links %}
+      {% include components/button.html
+        text = link.text
+        href = link.href
+        icon = link.icon
+        style = "text"
+        class = "transform-none"
+      %}
+      
+      {% endfor %}
+    {% endfor %}
+  </div>
   {% endif %}
 
-  {% if include.citation %}
-  <p class="text-sm">{{ include.citation }}</p>
-  {% endif %}
+  {% if include.sidebarSecondaryLinks %}
+    <hr>
 
+    {% comment %}
+    Sidebar Secondary Links
+    These links are set at the layout level, and may pull from global data in _config.yml
+    {% endcomment %}
+
+    <p class="text-xl font-bold">{{ include.sidebarSecondaryLinksTitle }}</p>
+
+    <div class="flex flex-col flow mt-1 flow-1/2">
+      {% for link in include.sidebarSecondaryLinks %}
+        <div>
+          {% include components/button.html
+            text = link.title
+            href = link.href
+            style = "secondary"
+            class = "transform-none"
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </aside>
