@@ -18,7 +18,7 @@ links:
 - text: More testing
   href: https://duckduckgo.com/
   icon: download
-citation:
+myCitation:
 - text: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham. DOI:10.1111/josi.12122"
   href: https://neal.fun/password-game/
 categories:

@@ -4,11 +4,10 @@ project:
     - "_datasets/"
     - "_stories/"
   lib-dir: "public/vendor"
-  preview:
-    port: 4040
-    serve:
-      cmd: "bundle exec jekyll serve --port {port}"
-      ready: "Web Server is available at"
 format:
   gfm:
     variant: gfm+yaml_metadata_block+definition_lists
+    html-math-method: webtex
+    preview-mode: raw
+    fig-format: svg
+    extract-media: '../../_stories'
