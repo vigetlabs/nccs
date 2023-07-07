@@ -129,3 +129,49 @@ graph G {
   sleep -- runmem;
 }
 ```
+
+### Equations {#sec-equations}
+
+#### First Model
+
+We can fit a simple linear regression model of the form shown in @eq-slr.
+
+$$
+dist = \hat{\beta}_0 + \hat{\beta}_1 \times speed + \epsilon
+$$ {#eq-slr}
+
+@tbl-lm shows the regression output for this model.
+
+```{r}
+#| label: tbl-lm
+#| tbl-cap: "Linear regression model for predicting price from area"
+
+dist_fit <- lm(dist ~ speed, data = cars)
+  
+dist_fit %>%
+  tidy() %>%
+  kable(digits = c(0, 0, 2, 2, 2))
+
+```
+
+#### Second Model
+
+Let's fit a more complicated multiple linear regression model of the form shown in @eq-mlr. 
+
+$$
+dist = \hat{\beta}_0 + \hat{\beta}_1 \times speed + \hat{\beta}_2 \times speed ^ 2 + \epsilon
+$$ {#eq-mlr}
+
+@tbl-lm2 shows the regression output for this model.
+
+```{r}
+#| label: tbl-lm2
+#| tbl-cap: "Second linear regression model for predicting price from area"
+
+dist_fit2 <- lm(dist ~ poly(speed, degree = 2, raw = TRUE), data = cars)
+  
+dist_fit2 %>%
+  tidy() %>%
+  kable(digits = c(0, 0, 2, 2, 2))
+
+```
