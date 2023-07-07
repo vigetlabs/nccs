@@ -5,13 +5,14 @@ Button
 - href {String (url)}
 - style {String (primary, secondary, text)}
 - icon {String}
+- class {String}
 - disabled {Boolean}
 {% endcomment %}
 
 {% if include.style %}
-  {% assign style = include.style %}
+  {% assign style = include.style | prepend: "-" %}
 {% else %}
-  {% assign style = "primary" %}
+  {% assign style = "-primary" %}
 {% endif %}
 
 {% if include.tag %}
@@ -20,7 +21,7 @@ Button
   {% assign tag = "a" %}
 {% endif %}
 
-<{{tag}} class="btn -{{style}}" {% if include.href %}href="{{ include.href }}"{% endif %} {% if include.disabled == true %}disabled{% endif %} >
+<{{tag}} class="btn {{style}} {{include.class}}" {% if include.href %}href="{{ include.href }}"{% endif %} {% if include.disabled == true %}disabled{% endif %} >
   <span>{{ include.text }}</span>
   {% if include.icon %}
      {% include components/svg.html

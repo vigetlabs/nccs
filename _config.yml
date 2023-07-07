@@ -30,6 +30,8 @@ repository: "https://github.com/vigetlabs/nccs"
 twitter_username: 
 github_username:
 
+markdown: GFM
+
 # Top Navigation Items
 # Entries here will show up in the _includes/nav.html partial
 nav:
@@ -37,6 +39,8 @@ nav:
     url: /datasets/
   - title: Resources
     url: /resources/
+  - title: Stories
+    url: /stories/
   - title: About
     url: /about/
   - title: Parts (temp)

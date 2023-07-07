@@ -1,0 +1,16 @@
+.sidebar {
+  padding-block: 2em;
+  padding-inline: $grid-gap;
+  background-color: $color-blue-100;
+
+  @include breakpoint(lg) {
+   padding: 3em;
+  }
+}
+
+.sidebar__author__photo {
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+  overflow: hidden;
+}
