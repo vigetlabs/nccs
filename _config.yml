@@ -160,6 +160,7 @@ exclude:
   - "Gemfile.lock"
   - "Rakefile"
   - "*.qmd"
+  - "readme.md"
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/

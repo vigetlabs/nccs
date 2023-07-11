@@ -2,8 +2,6 @@
 title: Pentagonal Perpetual Parabolas
 date: 2023-06-05 12:00:00
 description: Elit nihil qui dolorum sed assumenda possimus veritatis pariatur dolorum nisi. Ipsum quidem officiis obcaecati reprehenderit amet.
-featured: true
-featuredOrder: 4
 type: test
 categories:
 - dogs

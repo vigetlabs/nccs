@@ -2,6 +2,7 @@
 title: Second Story
 date: 2023-06-01 12:00:00
 description: Amet amet maxime sit neque cumque Maxime explicabo maxime est accusamus exercitationem ad Dolor nulla ipsum rem nemo ab deserunt eligendi quas hic Quo impedit vel perspiciatis quam.
+image: stories/story-placeholder.webp
 featured: true
 featuredOrder: 2
 type: other

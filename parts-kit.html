@@ -492,7 +492,53 @@ links:
     categories = sampleTerms
     type = sampleTypes
   %}
+
+  {% assign cardImage = '/public/img/stories/story-placeholder.webp' | relative_url %}
+
+  {% include components/card-vertical.html
+    eyebrow = sampleTypes
+    header = "Vertical Card with Image"
+    description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam."
+    image = cardImage
+    href = "#"
+    date = sampleDate
+    categories = sampleTerms
+    type = sampleTypes
+  %}
   </div>
+</div>
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <div class="flow flow-1">
+    <h2 class="m-0 p-0">Content Feature</h2>
+    <p class="mt-0">Pulls featured content to the top. 3 styles: light, dark, and image (Stories only).</p>
+  </div>
+</div>
+
+<div class="feature flow">
+  {% assign featured_posts = site.stories | where: "featured", "true" | sort: "featuredOrder" | limit: "5" %}
+
+  <h3>Light Variant</h3>
+
+  {% include components/content-feature.html
+    entries = featured_posts
+    style = "light"
+  %}
+
+  <h3>Dark Variant</h3>
+
+  {% include components/content-feature.html
+    entries = featured_posts
+    style = "dark"
+  %}
+
+  <h3>Image Variant</h3>
+  <p class="mt-0">Requires `image` to be set. Only for `_stories`</p>
+
+  {% include components/content-feature.html
+    entries = featured_posts
+    style = "image"
+  %}
 </div>
 
 <div class="feature pb-1 border-b-blue flow-3">

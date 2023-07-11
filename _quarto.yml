@@ -2,9 +2,7 @@ project:
   type: default
   render:
     - "_stories/"
-    - "quarto"
   lib-dir: "public/vendor"
-  output-dir: "_stories"
 format:
   gfm:
     variant: gfm+yaml_metadata_block+definition_lists

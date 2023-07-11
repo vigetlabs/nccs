@@ -1,4 +1,4 @@
-# Teams templated: executive, leadership, member/unspecified
+# Teams templated: executive, leadership, member, none (excluded from list)
 - id: jc
   first: Juri
   last: Cranberry
@@ -6,7 +6,7 @@
   orcid: 0000-0002-1825-0097
   email: josiah@psychoceramics.org
   team: leadership
-  image: https://placehold.co/300x300
+  image: people/person-placeholder.png
   affiliation: 
     - name: Burgundy University
       city: Providence
@@ -28,7 +28,7 @@
       city: Providence
       state: RI
       url: www.brown.edu
-  image: https://placehold.co/300x300
+  image: people/person-placeholder.png
   social:
     - name: linkedin
       url: #
@@ -45,7 +45,7 @@
       city: Providence
       state: RI
       url: www.brown.edu
-  image: https://placehold.co/300x300
+  image: people/person-placeholder.png
   social:
     - name: linkedin
       url: #
@@ -62,7 +62,7 @@
       city: Classified
       state: Classified
       url: Classified
-  image: https://placehold.co/300x300
+  image: people/person-placeholder.png
   social:
     - name: linkedin
       url: #

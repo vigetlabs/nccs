@@ -15,6 +15,10 @@ noContentMargin: true
 
 <div class="content mt-3 mb-3">
   <div class="flow">
+    {% if page.image %}
+      {% assign imageUrl = "/public/img/" | append: page.image | relative_url %}
+      <img src="{{imageUrl}}" alt="">
+    {% endif %}
     {{ content }}
   </div>
 </div>

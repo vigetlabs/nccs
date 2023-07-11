@@ -8,17 +8,35 @@ layout: default
   {% assign type = "resource" %}
 {% endif %}
 
-{% if page.authors %}
-  {% assign authors = page.authors | join: ", " %}
+{% if page.author %}
+  {% assign resourceAuthors = nil %}
+  {% for author in page.author %}
+    {% assign name = nil %}
+    {% if author.name %}
+      {% assign name = author.name %}
+    {% elsif author.id %}
+      {% for person in site.data.people %}
+        {% if author.id == person.id %}
+          {% capture name %}{{ person.first}} {{person.last}}{% endcapture %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if resourceAuthors != nil %}
+      {% assign addPerson =  name | prepend: ", " %}
+      {% assign resourceAuthors = resourceAuthors | append: addPerson %}
+    {% else %}
+      {% assign resourceAuthors = name %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
 
 {% assign date = page.date | date: "%B %d, %Y" %}
 
-
 {% include components/page-header.html
   eyebrow = type
   header = page.title
-  subheader = authors
+  subheader = resourceAuthors
   date = date
   class = "mb-3"
 %}
@@ -35,9 +53,9 @@ layout: default
 </div>
 {% endif %}
 
-{% if page.links %}
+{% if page.primaryLinks %}
 <div class="content flow flex flex-col">
-{% for link in page.links %}
+{% for link in page.primaryLinks %}
   <div class="flow-1/2">
   {% include components/button.html
     text = link.text
@@ -51,19 +69,11 @@ layout: default
 {% endif %}
 
 {% if page.citation %}
-<div class="content flex flow flex-col">
-{% for citation in page.citation %}
-  <div class="flow flow-1/2">
-  {% include components/button.html
-    text = "Copy Citation"
-    href = citation.href
-    icon = "files"
-    style = "tertiary"
+  {% include components/citation.html
+    citation = page.citation
+    citationDate = page.date
+    author = page.author
   %}
-  <p class="font-italic text-sm">{{ citation.text }}</p>
-  </div>
-{% endfor %}
-</div>
 {% endif %}
 
 {% if page.abstract or page.links or page.citation %}

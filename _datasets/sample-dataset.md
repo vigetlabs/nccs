@@ -2,6 +2,10 @@
 title: Dataset Sample Full Fields
 date: 2023-05-27
 description: Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit
+categories:
+  - environment
+  - lorem
+  - testing
 primaryCtaUrl: "#"
 primaryCtaCaption: "File size: 246kb"
 primaryLinks:
@@ -9,14 +13,15 @@ primaryLinks:
     href: "#"
   - text: "Data History"
     href: "#"
+author:
+- id: jc
+- id: jd
+- name: "Edmund Choi"
+  bio: "Testing bio and author overrides"
 citation: 
   author: "Choi. Y & Lee, Y."
   container-title: "Ednel: A large – scale hierarchical dataset in education"
   doi: 10.5555/12345678
-categories:
-  - environment
-  - lorem
-  - testing
 ---
 
 ## Overview

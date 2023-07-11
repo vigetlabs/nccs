@@ -10,6 +10,8 @@ categories:
 - dogs
 author:
 - id: jc
+- name: "Moacir Bastos Soares"
+  bio: "Custom bio for inclusion in author section for one-time authors."
 citation: true
 ---
 
