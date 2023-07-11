@@ -6,16 +6,17 @@ noContentMargin: true
 
 {% include sidebar.html
   header = page.title
-  downloadUrl = page.downloadUrl
-  downloadSize = page.downloadSize
-  sidebarLinks = page.sidebarLinks
-  sidebarSecondaryLinksTitle = site.sidebar_datasets_title
-  sidebarSecondaryLinks = site.sidebar_datasets_links
+  primaryCtaUrl = page.primaryCtaUrl
+  primaryCtaCaption = page.primaryCtaCaption
+  primaryLinks = page.primaryLinks
+  globalLinks = site.globalDatasetLinks
   citationUrl = page.citationUrl
   citation = page.citation
+  citationDate = page.date
+  style = "neutral"
 %}
 
-<div class="content">
+<div class="content mt-3 mb-3">
   <div class="flow">
     {{ content }}
   </div>

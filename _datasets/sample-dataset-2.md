@@ -6,6 +6,7 @@ categories:
   - testing
   - environment
   - ipsum
+citation: true
 ---
 
 Testing out the dataset collection.

@@ -1,6 +1,6 @@
 ---
 title: Story Sample
-date: 2023-05-29 12:00:00
+date: 2023-05-29
 description: Amet amet maxime sit neque cumque Maxime explicabo maxime est accusamus exercitationem ad Dolor nulla ipsum rem nemo ab deserunt eligendi quas hic Quo impedit vel perspiciatis quam.
 featured: true
 featuredOrder: 1
@@ -24,7 +24,7 @@ links:
       href: #
       icon: download
   -
-    header: Tools
+    header: Customs
     links:
     - text: View Data
       href: #
@@ -53,7 +53,7 @@ library(broom)      # for model summary
 
 ### Data Visualization {#sec-dataviz}
 
-Quarto works well with `library(urbnthemes)` -- the Urban Institute's R data visualization theme. 
+Quarto works well with `library(urbnthemes)` -- the Urban Institute's R data visualization theme.
 
 Consider an examples using the `cars` dataset, which contains `speed` and `dist` for `r nrow(cars)`. @fig-histogram shows two histograms displaying the distributions of `speed` and `dist` individually.
 
@@ -77,7 +77,7 @@ ggplot(cars, aes(x = dist)) +
 
 ### Data Tables {#sec-tables}
 
-The default for df-print is kable. This is the only type of table that works with the table references. kable works well until there is tons of data, where paged thrives. 
+The default for df-print is kable. This is the only type of table that works with the table references. kable works well until there is tons of data, where paged thrives.
 
 @tbl-stats-kable displays basic summary statistics for these two variables.
 
@@ -156,7 +156,7 @@ dist_fit %>%
 
 #### Second Model
 
-Let's fit a more complicated multiple linear regression model of the form shown in @eq-mlr. 
+Let's fit a more complicated multiple linear regression model of the form shown in @eq-mlr.
 
 $$
 dist = \hat{\beta}_0 + \hat{\beta}_1 \times speed + \hat{\beta}_2 \times speed ^ 2 + \epsilon
@@ -175,3 +175,16 @@ dist_fit2 %>%
   kable(digits = c(0, 0, 2, 2, 2))
 
 ```
+
+::: column-body-outset
+Outset content...
+:::
+
+```{r}
+#| column: page
+
+knitr::kable(
+  mtcars[1:6, 1:10]
+)
+```
+

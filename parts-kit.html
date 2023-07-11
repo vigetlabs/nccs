@@ -3,11 +3,20 @@ title: Parts Kit
 layout: default
 permalink: /parts-kit/
 activeLink: /parts-kit/
-sampleLinks: 
-  - title: "Sample 1"
-    url: "#"
-  - title: "Sample 2"
-    url: "#"
+author:
+- id: jd
+primaryLinks:
+- text: "Primary Link 1"
+  url: "#"
+- text: "Primary Link 2"
+  url: "#"
+links: 
+  - header: "Sample Link Header"
+    links:
+    - text: "Sample Link 1"
+      url: "#"
+    - text: "Sample Link 2"
+      url: "#"
 ---
 
 <div class="content text-center">
@@ -90,7 +99,7 @@ sampleLinks:
 <div class="feature flow">
   <h3 class="mb-0">Primary</h3>
 
-  <div class="flex gap">
+  <div class="flex flex-wrap gap">
     {% include components/button.html
       text = "Primary"
       href = "#"
@@ -120,7 +129,7 @@ sampleLinks:
 
   <h3 class="mb-0">Secondary</h3>
 
-  <div class="flex gap">
+  <div class="flex flex-wrap gap">
     {% include components/button.html
       text = "secondary"
       href = "#"
@@ -150,7 +159,7 @@ sampleLinks:
 
   <h3 class="mb-0">Tertiary</h3>
 
-  <div class="flex gap">
+  <div class="flex flex-wrap gap">
     {% include components/button.html
       text = "Tertiary"
       href = "#"
@@ -180,7 +189,7 @@ sampleLinks:
 
   <h3 class="mb-0">Text</h3>
 
-  <div class="flex gap">
+  <div class="flex flex-wrap gap">
     {% include components/button.html
       text = "Text"
       href = "#"
@@ -210,7 +219,7 @@ sampleLinks:
 
   <h3 class="mb-0">Light</h3>
 
-  <div class="flex gap bg-blue-800 p-1">
+  <div class="flex flex-wrap gap bg-blue-800 p-1">
     {% include components/button.html
       text = "Text"
       href = "#"
@@ -498,12 +507,13 @@ sampleLinks:
 <div class="content">
   {% include sidebar.html
     header = "Sample Sidebar"
-    downloadUrl = "#"
-    downloadSize = "245kb"
-    sidebarLinks = page.sampleLinks
-    sidebarSecondaryLinksTitle = site.sidebar_datasets_title
-    sidebarSecondaryLinks = site.sidebar_datasets_links
-    citationUrl = "#"
-    citation = "Maecenas sed diam eget risus varius blandit sit amet non magna."
+    primaryCtaUrl = "#"
+    primaryCtaCaption = "Filesize: 245kb"
+    primaryLinks = page.primaryLinks
+    globalLinks = site.globalDatasetLinks
+    author = page.author
+    citation = true
+    citationDate = sampleDate
+    links = page.links
   %}
 </div>

@@ -96,6 +96,10 @@ h5, .text-xl {
   text-transform: uppercase;
 }
 
+.transform-none {
+  text-transform: none !important;
+}
+
 .normal-case {
   text-transform: none;
 }

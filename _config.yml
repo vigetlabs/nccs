@@ -79,12 +79,14 @@ social_links:
 # Sidebar Dataset Links
 # Shows at the bottom of dataset sidebars
 
-sidebar_datasets_title: "How to Use this Data"
-sidebar_datasets_links:
-  - title: "User Guide"
-    url: "#"
-  - title: "Get Help"
-    url: "#"
+globalDatasetLinks:
+  -
+    header: "How to Use this Data"
+    links: 
+    - text: "User Guide"
+      url: "#"
+    - text: "Get Help"
+      url: "#"
 
 # Build settings
 sass:
