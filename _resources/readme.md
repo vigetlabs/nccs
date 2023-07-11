@@ -2,14 +2,13 @@
 
 A multi-purpose content collection
 
-
 ### Sample Resource YAML Header
 
 Fields that Jekyll will look for in a Resource entry.
 
 ```yaml
 ---
-title: Project Sample First Feature
+title: Project Sample
 description: Sed posuere consectetur est at lobortis duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 date: 2023-05-01
 featured: true
@@ -51,12 +50,12 @@ citation:
 ## Optional fields (unique):
 
 - `abstract` - {String|Array} Paragraphs for abstract section, allows markdown content
+- `primaryLinks` - {Object} text/href/icon for a button link in top section. Icon name must match available file in `_includes/svg/`
 
 ## Optional fields (shared):
 
 - `featured` - {Boolean} Used on Resource index page to pull items to the top
 - `featuredOrder` - {Number} Number for determining ordering for featured entries. Recommended max = 4
-- `featuredLinks` - {Object} text/href/icon for a button link in top section. Icon name must match available file in `_includes/svg/`
 
 ## Author and Citation
 
