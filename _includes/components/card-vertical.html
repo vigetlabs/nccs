@@ -5,6 +5,7 @@ Card Vertical
 - description {String}
 - href {String (url)}
 - icon {String}
+- image {String}
 - date {Date}
 - categories {Array}
 - type {Array}
@@ -21,6 +22,13 @@ Card Vertical
 {% endif %}
 
 <div class="card-vertical" data-filter-entry data-filter-categories="{{ include.categories | join: " " | downcase }}" data-filter-type="{{ include.type | join: " " | downcase }}" data-active="true">
+  {% if include.image %}
+    <div class="card-vertical__image">
+      <a href="{{ include.href }}">
+        <img src="{{ include.image }}" alt="">
+      </a>
+    </div>
+  {% endif %}
   {% if include.eyebrow %}
     <div class="text-xs uppercase color-neutral-800 mb-1/2 font-normal flex gap-sm">
       {{ include.eyebrow | join: " "}}

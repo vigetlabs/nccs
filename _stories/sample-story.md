@@ -2,34 +2,30 @@
 title: Story Sample
 date: 2023-05-29
 description: Amet amet maxime sit neque cumque Maxime explicabo maxime est accusamus exercitationem ad Dolor nulla ipsum rem nemo ab deserunt eligendi quas hic Quo impedit vel perspiciatis quam.
+image: stories/story-placeholder.webp
 featured: true
 featuredOrder: 1
-type: test type
+type: test
 categories:
-- flamingos
-- zebras
-- antelopes
+  - flamingos
+  - zebras
+  - antelopes
 author:
-- id: mr
-- id: jd
-- id: jc
+  - id: mr
+  - id: jd
+  - id: jc
 citation: 
-  type: article-journal
   container-title: Journal of Psychoceramics
   volume: 1
   issue: 1
-  issued: 2022-03
-  issn: 1539-9087
   doi: 10.5555/12345678
 links:
-  -
-    header: Data
+  - header: Data
     links:
     - text: Test
       href: #
       icon: download
-  -
-    header: Customs
+  - header: Customs
     links:
     - text: View Data
       href: #

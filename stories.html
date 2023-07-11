@@ -19,6 +19,7 @@ activeLink: /stories/
   {% assign featured_posts = site.stories | where: "featured", "true" | sort: "featuredOrder" | limit: "5" %}
   {% include components/content-feature.html
     entries = featured_posts
+    style = "image"
   %}
 </div>
 
@@ -57,17 +58,27 @@ activeLink: /stories/
 
     <div class="grid-cols-3 gap-lg mt-2" data-filter-entry-section>
       {% for post in posts %}
+
+        {% comment %}
+        Images
+        To activate images in this loop, remove the `and activateImages` from the condition
+        {% endcomment %}
+
+        {% assign imageUrl = nil %}
+        {% if post.image and activateImages %}
+          {% assign imageUrl = "/public/img/" | append: post.image | relative_url %}
+        {% endif %}
+
         {% assign url = post.url | relative_url %}
-        {% assign iconIndex = forloop.index | modulo: 3 %}
         {% include components/card-vertical.html
           header = post.title
           description = post.description
           href = url
           categories = post.categories
           type = post.type
+          image = imageUrl
         %}
       {% endfor %}
-
       {% comment %} No result message {% endcomment %}
       <div data-filter-null data-active="false" class="col-span-3 text-center color-neutral-800">
         Sorry, no results in Stories.
