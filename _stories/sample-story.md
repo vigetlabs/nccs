@@ -1,6 +1,6 @@
 ---
 title: Story Sample
-date: 2023-05-29 12:00:00
+date: 2023-05-29
 description: Amet amet maxime sit neque cumque Maxime explicabo maxime est accusamus exercitationem ad Dolor nulla ipsum rem nemo ab deserunt eligendi quas hic Quo impedit vel perspiciatis quam.
 featured: true
 featuredOrder: 1
@@ -9,13 +9,18 @@ categories:
 - flamingos
 - zebras
 - antelopes
-authors:
-- John Doe
-- Amalie Rösler
-myCitation:
-- 
-  text: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham. DOI:10.1111/josi.12122"
-  href: https://neal.fun/password-game/
+author:
+- id: mr
+- id: jd
+- id: jc
+citation: 
+  type: article-journal
+  container-title: Journal of Psychoceramics
+  volume: 1
+  issue: 1
+  issued: 2022-03
+  issn: 1539-9087
+  doi: 10.5555/12345678
 links:
   -
     header: Data
@@ -24,7 +29,7 @@ links:
       href: #
       icon: download
   -
-    header: Tools
+    header: Customs
     links:
     - text: View Data
       href: #
@@ -197,3 +202,24 @@ dist_fit2 %>%
 Table 3: Second linear regression model for predicting price from area
 
 </div>
+
+<div class="column-body-outset">
+
+Outset content…
+
+</div>
+
+``` r
+knitr::kable(
+  mtcars[1:6, 1:10]
+)
+```
+
+|                   |  mpg | cyl | disp |  hp | drat |    wt |  qsec |  vs |  am | gear |
+|:------------------|-----:|----:|-----:|----:|-----:|------:|------:|----:|----:|-----:|
+| Mazda RX4         | 21.0 |   6 |  160 | 110 | 3.90 | 2.620 | 16.46 |   0 |   1 |    4 |
+| Mazda RX4 Wag     | 21.0 |   6 |  160 | 110 | 3.90 | 2.875 | 17.02 |   0 |   1 |    4 |
+| Datsun 710        | 22.8 |   4 |  108 |  93 | 3.85 | 2.320 | 18.61 |   1 |   1 |    4 |
+| Hornet 4 Drive    | 21.4 |   6 |  258 | 110 | 3.08 | 3.215 | 19.44 |   1 |   0 |    3 |
+| Hornet Sportabout | 18.7 |   8 |  360 | 175 | 3.15 | 3.440 | 17.02 |   0 |   0 |    3 |
+| Valiant           | 18.1 |   6 |  225 | 105 | 2.76 | 3.460 | 20.22 |   1 |   0 |    3 |

@@ -8,6 +8,9 @@ type: other
 categories:
 - squirrels
 - dogs
+author:
+- id: jc
+citation: true
 ---
 
 Testing out the stories collection.

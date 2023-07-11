@@ -4,14 +4,13 @@ grid: sidebar
 noContentMargin: true
 ---
 
-{% assign date = page.date | date: "%B %d, %Y" %}
-
 {% include sidebar.html
   header = page.title
-  date = date
-  authors = page.authors
+  date = page.date
+  author = page.author
   links = page.links
   citation = page.citation
+  citationDate = page.date
 %}
 
 <div class="content mt-3 mb-3">

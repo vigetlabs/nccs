@@ -8,6 +8,10 @@ type: other
 categories:
 - zebras
 - squirrels
+author:
+ - id: ar
+citation: 
+  doi: 10.5555/12345678
 ---
 
 Testing out the stories collection.

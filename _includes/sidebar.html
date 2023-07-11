@@ -1,51 +1,64 @@
 {% comment %}
 SIDEBAR
 - header {String}
-- downloadUrl {String (url)}
-- downloadSize {String}
-- sidebarLinks {Object}
-  - title {String}
-  - url {String (url)}
-- sidebarSecondaryLinksTitle {String}
-- sidebarSecondaryLinks = {Object}
-  - title {String}
-  - url {String (url)}
-- citationUrl {String (url)}
+- date {Date}
+- primaryCtaUrl {String (url)}
+- primaryCtaCaption {String}
+- links {Object}
+  - header {String}
+  - links {Array}
+    - text {String}
+    - url {String (url)}
+- globalLinks {Object}
+  - header {String}
+  - links {Array}
+    - text {String}
+    - url {String (url)}
 - citation {String}
+- citationDate {Date}
+- style {String} (neutral|blue)
 {% endcomment %}
 
-<aside class="sidebar flow">
+{% if include.style %}
+  {% assign style = include.style | prepend: "-" %}
+{% else %}
+  {% assign style = "-blue" %}
+{% endif %}
+
+<aside class="sidebar flow {{ style }}">
   <h1 class="mt-0">{{ include.header }}</h1>
 
   {% if include.date %}
-    <p class="text-sm">{{ include.date }}</p>
+    {% assign date = include.date | date: "%B %d, %Y" %}
+    <p class="text-sm">{{ date }}</p>
   {% endif %}
 
-  {% if include.downloadUrl %}
+  {% if include.primaryCtaUrl %}
     {% include components/button.html
       text = "Download Data"
-      href = include.downloadUrl
+      href = include.primaryCtaUrl
       style = "primary"
       icon = "download"
     %}
   {% endif %}
 
-  {% if include.downloadSize %}
-    <p class="text-sm">File size: {{include.downloadSize}}</p>
+  {% if include.primaryCtaUrl %}
+    <p class="text-sm">{{ include.primaryCtaCaption }}</p>
   {% endif %}
 
   {% comment %}
-  Sidebar Links
-  These links are set at the content level, but the include is at the layout level
+  Primary Links
+  Display as buttons above the citation
   {% endcomment %}
 
-  {% if include.sidebarLinks %}
+  {% if include.primaryLinks %}
     <div class="flex flex-col flow mt-1 flow-1/2">
-      {% for link in include.sidebarLinks %}
+      {% for link in include.primaryLinks %}
         <div>
           {% include components/button.html
-            text = link.title
+            text = link.text
             href = link.href
+            icon = link.icon
             style = "secondary"
           %}
         </div>
@@ -53,47 +66,156 @@ SIDEBAR
     </div>
   {% endif %}
 
-  {% if include.citation %}
+  {% comment %}
+  Global Links
+  This allows a repeating set of links for an entire content type
+  (Ex. 'Getting Started' links for datasets)
+  {% endcomment %}
+
+  {% if include.globalLinks %}
     <hr>
-    {% for citation in page.citation %}
-      <div class="flow flow-1/2">
-      {% include components/button.html
-        text = "Copy Citation"
-        href = citation.href
-        icon = "files"
-        style = "tertiary"
-      %}
-      <div class="font-italic text-sm">
-        {{ citation.text | markdownify }}
+    {% for section in include.globalLinks %}
+      {% if section.header %}
+        <p class="text-xl font-bold">{{ section.header }}</p>
+      {% endif %}
+
+      <div class="flex flex-col flow mt-1 flow-1/2">
+        {% for link in section.links %}
+          <div>
+            {% include components/button.html
+              text = link.text
+              href = link.href
+              icon = link.icon
+              style = "secondary"
+              class = "transform-none"
+            %}
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
   {% endif %}
 
-  {% if include.authors %}
+  {% comment %}
+  Citation
+  {% endcomment %}
+
+  {% if include.citation %}
+    {% assign citationDate = include.citationDate | date: "%Y" %}
+    {% assign citationAuthors = nil %}
+
+    {% comment %}
+      Allow override from within the citation field
+      Otherwise pull information from the pages author fields
+      Based on Chicago Manual Style Author-Date format
+      https://www.chicagomanualofstyle.org/tools_citationguide/citation-guide-2.html
+    {% endcomment %}
+
+    {% if include.citation.author %}
+      {% assign citationAuthors =  include.citation.author %}
+    {% else %}
+      {% for author in include.author %}
+        {% assign name = nil %}
+        {% assign authorIndex = forloop.index %}
+        {% assign authorLast = forloop.last %}
+        {% if author.name %}
+          {% assign name = author.name %}
+        {% elsif author.id %}
+          {% for person in site.data.people %}
+            {% if author.id == person.id %}
+              {% if authorIndex == 1 %}
+              {% capture name %}{{ person.last}}, {{person.first}}{% endcapture %}
+              {% elsif authorLast and authorIndex != 1 %}
+                {% capture name %}and {{ person.first}} {{person.last}}{% endcapture %}
+              {% else %}
+                {% capture name %}{{ person.first}} {{person.last}}{% endcapture %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if citationAuthors != nil %}
+          {% assign addPerson =  name | prepend: ", " %}
+          {% assign citationAuthors = citationAuthors | append: addPerson %}
+        {% else %}
+          {% assign citationAuthors = name %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    <hr>
+    <div class="flow" data-module="clipboard">
+      {% include components/button.html
+        text = "Copy Citation"
+        icon = "external"
+        style = "text"
+        class = "transform-none"
+        dataKey = "clipboard-trigger"
+        dataValue = "trigger"
+      %}
+
+      <div class="font-italic text-xs" data-clipboard-text>
+        {% if citationAuthors %}
+          {{ citationAuthors}}. 
+        {% endif %}
+          {{ citationDate }}. 
+          "{{ page.title }}." 
+        {% if include.citation.container-title %}
+          {{ include.citation.container-title }}. 
+        {% else %}
+          {{ site.title }}.
+        {% endif %}
+        {% if include.citation.volume or include.citation.issue %}
+          {{ include.citation.volume }}, no. {{include.citation.issue}}. 
+        {% endif %}
+        {% if include.citation.doi %}
+          https://doi.org/{{ include.citation.doi }}. 
+        {% endif %}
+        {% if include.citation.url %}
+          {{ include.citation.url }} 
+        {% else %}
+          {{ site.url }}{{ page.url }}
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% comment %}
+  Authors
+  Will match id's against data in _date/people.yml and attempt to display info
+  {% endcomment %}
+
+  {% if include.author %}
     <hr>
 
-    {% for author in page.authors %}
+    {% for author in page.author %}
+      {% assign authorName = author.name %}
       {% assign authorBio = nil %}
-      {% assign authorPhoto = nil %}
+      {% assign authorImage = nil %}
       {% for person in site.data.people %}
-        {% if person.name == author %}
-          {% assign authorPhoto = person.photo %}
+        {% if person.id == author.id %}
+          {% assign authorName = person.first | append: " " | append: person.last %}
+          {% assign authorImage = person.image %}
           {% assign authorBio = person.bio %}
         {% endif %}
       {% endfor %}
       <div class="flex gap-xs items-center">
-        {% if authorPhoto %}
-        <div class="sidebar__author__photo">
-          <img src="{{ authorPhoto }}" alt="Portrait of {{ author }}">
+        {% if authorImage %}
+        <div class="sidebar__author__image">
+          <img src="{{ authorImage }}" alt="Portrait of {{ author }}">
         </div>
         {% endif %}
-        <span class="font-bold">{{ author }}</span>
+        <span class="font-bold">{{ authorName }}</span>
       </div>
       <div class="text-xs">
         {{ authorBio }}
       </div>
     {% endfor %}
   {% endif %}
+
+  {% comment %}
+  Links
+  Diplay as text links with customizeable headers
+  {% endcomment %}
 
   {% if include.links %}
   <hr>
@@ -116,27 +238,4 @@ SIDEBAR
   </div>
   {% endif %}
 
-  {% if include.sidebarSecondaryLinks %}
-    <hr>
-
-    {% comment %}
-    Sidebar Secondary Links
-    These links are set at the layout level, and may pull from global data in _config.yml
-    {% endcomment %}
-
-    <p class="text-xl font-bold">{{ include.sidebarSecondaryLinksTitle }}</p>
-
-    <div class="flex flex-col flow mt-1 flow-1/2">
-      {% for link in include.sidebarSecondaryLinks %}
-        <div>
-          {% include components/button.html
-            text = link.title
-            href = link.href
-            style = "secondary"
-            class = "transform-none"
-          %}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
 </aside>
