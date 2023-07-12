@@ -77,7 +77,7 @@ Citation
     {% if include.citation.url %}
       {{ include.citation.url }} 
     {% else %}
-      {{ site.url }}{{ page.url }}
+      {{ site.url }}{{site.baseurl}}{{ page.url }}
     {% endif %}
   </div>
 </div>
