@@ -6,7 +6,7 @@ noContentMargin: true
 <div class="full grid-content bg-pattern-dot pt-content pb-4 relative overflow-hidden bg-white-gradient-center flow">
   <div class="feature bg-white-gradient-center bg-white-gradient-bottom-right relative">
     <div class="relative z-1">
-      {% assign image = "public/img/collage.png" | relative_url %}
+      {% assign image = "public/img/collage.webp" | relative_url %}
       {% include components/hero.html
         header = "Welcome to the National Center for Charitable Statistics (NCCS) open data platform"
         description = "Consectetur atque culpa ad quidem ex? Deleniti atque error necessitatibus cumque quisquam. Fugit necessitatibus commodi eveniet."
@@ -21,12 +21,13 @@ noContentMargin: true
 
   <div class="content text-center flow-4 relative bg-white-gradient-center">
     <div class="relative z-1">
+      {% assign ctaImage = "/public/img/stories/story-placeholder.webp" | relative_url %}
       {% include components/content-cta.html
         header = "Nullam quis risus eget urna mollis"
         description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
         ctaUrl = "#"
         ctaText = "Learn how to use NCCS data"
-        imageUrl = "https://placehold.co/855x555"
+        imageUrl = ctaImage
         imageAlt = "A11y description"
       %}
     </div>
@@ -57,9 +58,12 @@ noContentMargin: true
     <div class="posts mt-4" data-filter-entry-section>
       {% for post in site.datasets %}
         {% assign postUrl = post.url | relative_url %}
+        {% assign imageIndex = forloop.index | modulo: 17 %}
+        {% assign image = "/public/img/datasets/dataset-placeholder-" | append: imageIndex | append: ".png" | relative_url %}
         {% include components/card-horizontal.html
           header = post.title
           description = post.description
+          image = image
           date = post.date
           href = postUrl
           categories = post.categories

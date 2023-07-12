@@ -41,9 +41,12 @@ activeLink: /datasets/
     <div class="posts mt-4" data-filter-entry-section>
       {% for post in site.datasets %}
         {% assign postUrl = post.url | relative_url %}
+        {% assign imageIndex = forloop.index | modulo: 17 %}
+        {% assign image = "/public/img/datasets/dataset-placeholder-" | append: imageIndex | append: ".png" | relative_url %}
         {% include components/card-horizontal.html
           header = post.title
           description = post.description
+          image = image
           date = post.date
           href = postUrl
           categories = post.categories

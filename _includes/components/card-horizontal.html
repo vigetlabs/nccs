@@ -3,15 +3,22 @@ Card Horizontal
 - header {String}
 - description {String}
 - href {String (url)}
+- image {String (url)}
 - date {Date}
 - categories {Array}
 - type {Array}
 {% endcomment %}
 
+{% if include.image %}
+  {% assign image = include.image %}
+{% else %}
+  {% assign image = "https://placehold.co/225x150" %}
+{% endif %}
+
 <div class="card-horizontal" data-filter-entry data-filter-categories="{{ include.categories | join: " " }}" data-filter-type="{{ include.type | join: " " | downcase }}"  data-active="true">
   <div class="card-horizontal__image" seed="{{ include.date | date_to_string }}">
     <a href="{{ include.href }}">
-      <img src="https://placehold.co/225x150" alt="">
+      <img src="{{ image }}" alt="">
     </a>
   </div>
   <div class="card-horizontal__text">

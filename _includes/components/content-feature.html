@@ -12,8 +12,10 @@ Content Feature
   {% assign style = "-dark" %}
 {% endif %}
 
-{% if include.style == "image" %}
+{% if include.style == "image" and featured.image %}
   {% assign featuredImage = "/public/img/" | append: featured.image | relative_url %}
+{% elsif include.style == "image" and featured.image == nil %}
+  {% assign style = "-dark" %}
 {% endif %}
 
 {% if include.entries and include.entries.size != 0 %}
