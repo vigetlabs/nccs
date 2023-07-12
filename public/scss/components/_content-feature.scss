@@ -99,3 +99,19 @@
 .content-feature__main__filter {
   display: none;
 }
+
+// Firefox-specific overlay to mimic svg duotone filter
+@-moz-document url-prefix() {
+  .content-feature.-image .content-feature__main {
+    background: $color-blue-500;
+  }
+
+  .content-feature__main__inset__image {
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  .content-feature__main:hover .content-feature__main__inset__image {
+    opacity: 0.3;
+  }
+}
