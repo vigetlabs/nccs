@@ -256,7 +256,7 @@ links:
 <div class="feature flex flex-wrap gap">
 
 
-  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo minus open pdf play plus preview project reddit rss search twitter video visibility youtube" | split: " " %}
+  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo mastodon minus open pdf play plus preview project project-bar project-database project-line reddit rss search twitter video visibility youtube" | split: " " %}
 
   {% for icon in icons %}
     <div class="flex flex-col items-center">
@@ -405,7 +405,7 @@ links:
 
 <div class="feature pb-1 border-b-blue flow-3">
   <h2 class="m-0 p-0">Content CTA</h2>
-  <p>Intended to highlight a particular link or piece of content. Intended to sit in a <code>.content</code> container.</p>
+  <p>Used to highlight a particular link or piece of content, with both a light and a dark variant.</p>
 </div>
 
 
@@ -417,6 +417,19 @@ links:
     ctaText = "Learn how to use NCCS data"
     imageUrl = "https://placehold.co/855x555"
     imageAlt = "A11y description"
+    style = "light"
+  %}
+</div>
+
+<div class="full">
+  {% include components/content-cta.html
+    header = "Nullam quis risus eget urna mollis"
+    description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+    ctaUrl = "#"
+    ctaText = "Learn how to use NCCS data"
+    imageUrl = "https://placehold.co/855x555"
+    imageAlt = "A11y description"
+    style = "dark"
   %}
 </div>
 

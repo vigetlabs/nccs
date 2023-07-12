@@ -7,6 +7,7 @@ Content CTA
 - ctaIcon {String}
 - imageUrl {String (url)}
 - imageAlt {String}
+- style {String}
 {% endcomment %}
 
 {% if include.ctaText %}
@@ -21,22 +22,30 @@ Content CTA
   {% assign ctaIcon = "" %}
 {% endif %}
 
-<div class="content-cta flow flow-1">
-  <h2>{{ include.header }}</h2>
-  <p>{{ include.description }}</p>
+{% if include.style %}
+  {% assign style = include.style | prepend: "-" %}
+{% else %}
+  {% assign style = "-light" %}
+{% endif %}
 
-  {% if include.imageUrl %}
-    <div class="content-cta__image">
-      <img src="{{ include.imageUrl }}" alt="{{ include.imageAlt }}">
-    </div>
-  {% endif %}
+<div class="content-cta {{ style }}">
+  <div class="content-cta__text flow flow-1">
+    <h2>{{ include.header }}</h2>
+    <p>{{ include.description }}</p>
 
-  {% if include.ctaUrl %}
-    {% include components/button.html
-      href = include.ctaUrl
-      text = ctaText
-      icon = ctaIcon
-      style = "primary"
-    %}
-  {% endif %}
+    {% if include.imageUrl %}
+      <div class="content-cta__image">
+        <img src="{{ include.imageUrl }}" alt="{{ include.imageAlt }}">
+      </div>
+    {% endif %}
+
+    {% if include.ctaUrl %}
+      {% include components/button.html
+        href = include.ctaUrl
+        text = ctaText
+        icon = ctaIcon
+        style = "primary"
+      %}
+    {% endif %}
+  </div>
 </div>
