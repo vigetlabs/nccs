@@ -52,7 +52,7 @@ $grid-popout: minmax(0, 2rem);
 $grid-feature: minmax(0, 11.375rem);
 $grid-sidebar: clamp(5rem, 33vw, 25rem);
 $grid-sidebar-gap: clamp(2rem, 5vw, 5.3125rem);
-$grid-sidebar-content: minmax(auto, 48rem);
+$grid-sidebar-content: min(48rem, 100% - #{$grid-sidebar} - #{$grid-sidebar-gap} * 2);
 
 // Fluid Font Definitions, see Functions
 $remBase: 16;
