@@ -11,6 +11,19 @@ activeLink: /datasets/
   description = page.description
 %}
 
+<div class="feature flow flow-4">
+  {% include components/divider.html
+    header = "Recommended"
+  %}
+
+  {% assign featured_posts = site.datasets | where: "featured", "true" | sort: "featuredOrder" %}
+  {% include components/content-feature.html
+    entries = featured_posts
+    eyebrow = "dataset"
+    style = "light"
+  %}
+</div>
+
 {% comment %} 
   FILTERS
   Because of the work needed to set up, the filters cannot be fully componentized

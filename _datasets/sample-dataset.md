@@ -6,6 +6,8 @@ categories:
   - environment
   - lorem
   - testing
+featured: true
+featuredOrder: 1
 primaryCtaUrl: "#"
 primaryCtaCaption: "File size: 246kb"
 primaryLinks:
