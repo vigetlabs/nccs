@@ -54,6 +54,10 @@
   width: 50%;
 }
 
+.w-full {
+  width: 100%;
+}
+
 // MARGIN
 // uses logical properties where possible
 
@@ -107,6 +111,14 @@
 
 .mt-4 {
   margin-block-start: 4em;
+}
+
+.mi-2 {
+  margin-inline: 2em;
+}
+
+.mi-3 {
+  margin-inline: 3em;
 }
 
 .my-content {
