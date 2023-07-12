@@ -28,6 +28,13 @@
   display: flex;
   gap: 1em;
   font-size: 0.75em;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 .footer__nav__item {
