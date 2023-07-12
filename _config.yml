@@ -43,8 +43,6 @@ nav:
     url: /stories/
   - title: About
     url: /about/
-  - title: Parts (temp)
-    url: /parts-kit/
 
 # Footer Navigation Items
 # Entries here will show up in the _includes/footer.html partial
@@ -53,6 +51,8 @@ footer_nav:
     url: /privacy/
   - title: Terms & Service
     url: /terms/
+  - title: Parts Kit
+    url: /parts-kit/
 
 # Social Links
 # Entries here will show up in the _includes/footer.html partial in the social section
