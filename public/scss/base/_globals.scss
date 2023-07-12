@@ -43,10 +43,7 @@ pre {
 }
 
 code {
-  font-family: "Fira Code", "JetBrains Mono", "Source Code Pro", Inconsolata,
-    Consolas, MonoLisa, Monoid, Menlo, Monaco, Andale Mono WT, Andale Mono,
-    DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L,
-    monospace;
+  font-family: $font-code;
 }
 
 hr {
