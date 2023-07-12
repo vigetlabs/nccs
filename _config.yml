@@ -30,6 +30,8 @@ repository: "https://github.com/vigetlabs/nccs"
 twitter_username: 
 github_username:
 
+markdown: GFM
+
 # Top Navigation Items
 # Entries here will show up in the _includes/nav.html partial
 nav:
@@ -37,6 +39,8 @@ nav:
     url: /datasets/
   - title: Resources
     url: /resources/
+  - title: Stories
+    url: /stories/
   - title: About
     url: /about/
   - title: Parts (temp)
@@ -75,12 +79,14 @@ social_links:
 # Sidebar Dataset Links
 # Shows at the bottom of dataset sidebars
 
-sidebar_datasets_title: "How to Use this Data"
-sidebar_datasets_links:
-  - title: "User Guide"
-    url: "#"
-  - title: "Get Help"
-    url: "#"
+globalDatasetLinks:
+  -
+    header: "How to Use this Data"
+    links: 
+    - text: "User Guide"
+      url: "#"
+    - text: "Get Help"
+      url: "#"
 
 # Build settings
 sass:
@@ -138,6 +144,9 @@ collections:
     output: true
     permalink: /:collection/:name/
 
+include: 
+  - _stories
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -151,6 +160,7 @@ exclude:
   - "Gemfile.lock"
   - "Rakefile"
   - "*.qmd"
+  - "readme.md"
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/

@@ -1,0 +1,26 @@
+---
+title: About NCCS
+layout: page
+permalink: /about/
+activeLink: /about/
+---
+
+<div class="content flow">
+  <p>Adipisicing ipsam ipsum itaque accusamus iusto voluptatum Voluptas ipsum placeat saepe consequatur harum Accusamus mollitia voluptas molestias voluptas ab eum Iste architecto alias vel veniam sed laborum dolorem! Nihil ipsa.</p>
+  <p>Amet similique nobis voluptatum voluptatem assumenda Minus expedita nulla ipsum reiciendis excepturi culpa facilis Vitae aliquam suscipit consectetur dolore nobis Consectetur nam nisi voluptate possimus repellendus animi Vitae perspiciatis odit</p>
+</div>
+
+<div class="feature flow flow-2">
+  {% include components/divider.html
+    header = "Members"
+  %}
+
+  <div class="grid-cols-3">
+    {% for person in site.data.people %}
+    <div class="flow flow-1">
+      <p>{{ person.name }}</p>
+      <p>{{ person.title }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>

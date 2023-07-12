@@ -16,6 +16,7 @@
 @import "base/variables";
 @import "base/functions";
 @import "base/globals";
+@import "base/grid";
 @import "base/type";
 @import "base/forms";
 @import "base/flow";
@@ -25,6 +26,7 @@
 @import "components/button";
 @import "components/divider";
 @import "components/nav";
+@import "components/sidebar";
 @import "components/hero";
 @import "components/content-cta";
 @import "components/content-feature";
@@ -32,6 +34,8 @@
 @import "components/card-horizontal";
 @import "components/card-vertical";
 @import "components/footer";
+@import "components/code";
+@import "components/quarto-content";
 
 // Utility-classes
 @import "utilities/screen-reader";

@@ -16,33 +16,10 @@ activeLink: /resources/
     header = "Featured"
   %}
 
-  {% assign featured_posts = site.resources | where: "featured", "true" | sort: "featuredOrder" | limit: "6" %}
-  {% assign featured = featured_posts | first %}
-
-  {% if featured_posts and featured_posts.size != 0 %}
-    <div class="content-feature mt-2">
-      <div class="content-feature__main">
-        <div class="content-feature__main__text flow flow-1">
-          <div class="text-sm uppercase">{{ featured.type | join: " " }}</div>
-          <h2 class="text-5xl mt-0">
-            <a href="{{ featured.url | relative_url }}" class="content-feature__main__link">{{ featured.title }}</a>
-          </h2>
-          <p>{{ featured.description }}</p>
-        </div>
-      </div>
-
-      <div class="content-feature__aside">
-      {% for post in featured_posts offset:1 %}
-        {% assign url = post.url | relative_url %}
-        {% include components/card-vertical.html
-          eyebrow = post.type
-          header = post.title
-          href = url
-        %}
-      {% endfor %}
-      </div>
-    </div>
-  {% endif %}
+  {% assign featured_posts = site.resources | where: "featured", "true" | sort: "featuredOrder" | limit: "5" %}
+  {% include components/content-feature.html
+    entries = featured_posts
+  %}
 </div>
 
 {% comment %} 

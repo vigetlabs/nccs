@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -21,7 +23,8 @@ a {
   transition: color $transition-speed-default $ease-out-quad;
   text-decoration: none;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: $color-link-hover;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -29,8 +32,14 @@ a {
   }
 }
 
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1em;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
 }
 
 code {
@@ -47,82 +56,39 @@ hr {
   border-top: 1px solid $color-neutral-500;
 }
 
-// Flexible Grid
-// There are 4 sizes defined, starting from inward to outward:
-// content, popout, feature, full
-
-.grid-content {
-  display: grid;
-  grid-template-columns: [full-start] #{$grid-full} [feature-start] #{$grid-feature} [popout-start] #{$grid-popout} [content-start] #{$grid-content} [content-end] #{$grid-popout} [popout-end] #{$grid-feature} [feature-end] #{$grid-full} [full-end];
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.grid-sidebar {
-  display: grid;
-  grid-template-columns: [full-start] #{$grid-full} [content-start] #{$grid-content} [content-end] #{$grid-full} [full-end];
-
-  @include breakpoint(md) {
-    grid-template-columns: [full-start] #{$grid-full} [sidebar-start] #{$grid-sidebar} [sidebar-end gap-start] #{$grid-sidebar-gap} [gap-stop content-start] #{$grid-sidebar-content} [content-end] #{$grid-full} [full-end];
-  }
+table {
+  width: 100%;
+  vertical-align: top;
+  border-color: $color-divider;
+  border-collapse: collapse;
+  margin-block-end: 1em;
 }
 
-.grid-cols-3 {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-
-  @include breakpoint(sm) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @include breakpoint(lg) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+thead {
+  vertical-align: bottom;
 }
 
-.col-span-3 {
-  grid-column: span 3 / span 3;
+th, td {
+  padding: 0.5rem 0.5rem;
+  color: $color-text;
+  border-bottom-width: 1px;
+  border-color: inherit;
 }
 
-
-.grid-feature {
-  display: grid;
+table>:not(:first-child) {
+  border-top: 2px solid currentColor;
 }
 
-// Set default grid assignment
-.grid-content > * {
-  grid-column: content;
+tr {
+  border-bottom: 1px solid $color-divider;
 }
 
-.full {
-  grid-column: full;
+tr:nth-child(even) {
+  background-color: $color-neutral-100;
 }
 
-.feature {
-  grid-column: feature;
-}
-
-.popout {
-  grid-column: popout;
-}
-
-.content {
-  grid-column: content;
-}
-
-.sidebar {
-  grid-column: content;
-
-  @include breakpoint(md) {
-    grid-column: sidebar;
-  }
-}
-
-// Inset content, for setting flush with content inside a full or feature element
-.grid-inner-content {
-  width: $grid-content;
-  margin: 0 auto;
-}
-
-.grid-inner-feature {
-  max-width: $grid-container;
-  margin: 0 auto;
-}

@@ -1,20 +1,27 @@
 ---
 title: Dataset Sample Full Fields
-date: 2023-05-27 12:00:00
+date: 2023-05-27
 description: Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit
-downloadUrl: "#"
-downloadSize: "246kb"
-sidebarLinks:
-  - title: "R Package"
-    href: "#"
-  - title: "Data History"
-    href: "#"
-citationUrl: "#"
-citation: "Choi. Y & Lee, Y. (2020, July) Ednel: A large – scale hierarchical dataset in education. Springer, Cham."
 categories:
   - environment
   - lorem
   - testing
+primaryCtaUrl: "#"
+primaryCtaCaption: "File size: 246kb"
+primaryLinks:
+  - text: "R Package"
+    href: "#"
+  - text: "Data History"
+    href: "#"
+author:
+- id: jc
+- id: jd
+- name: "Edmund Choi"
+  bio: "Testing bio and author overrides"
+citation: 
+  author: "Choi. Y & Lee, Y."
+  container-title: "Ednel: A large – scale hierarchical dataset in education"
+  doi: 10.5555/12345678
 ---
 
 ## Overview

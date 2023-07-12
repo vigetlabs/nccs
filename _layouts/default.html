@@ -17,7 +17,7 @@
       {% assign grid = "grid-content" %}
     {% endif %}
 
-    <main id="main" class="{{ grid }} flow {% unless page.isFrontPage %}my-content{% endunless %}">
+    <main id="main" class="{{ grid }} flow {% unless page.noContentMargin or layout.noContentMargin %}my-content{% endunless %}">
       {{ content }}
     </main>
 
