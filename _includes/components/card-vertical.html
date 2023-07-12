@@ -51,9 +51,9 @@ Card Vertical
     {% endif %}
   </div>
   {% if include.categories %}
-    <div class="mt-1/2">
+    <div class="">
       {% for category in include.categories %}
-        <span class="border-pill uppercase text-xs">{{ category }}</span>
+        <span class="border-pill uppercase text-xs mt-1/2 inline-block">{{ category }}</span>
       {% endfor %}
     </div>
   {% endif %}

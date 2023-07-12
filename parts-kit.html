@@ -4,7 +4,7 @@ layout: default
 permalink: /parts-kit/
 activeLink: /parts-kit/
 author:
-- id: jd
+- id: jn
 primaryLinks:
 - text: "Primary Link 1"
   url: "#"
@@ -256,7 +256,7 @@ links:
 <div class="feature flex flex-wrap gap">
 
 
-  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo minus open pdf play plus preview project reddit rss search twitter video visibility youtube" | split: " " %}
+  {% assign icons = "arrow-right article chapter chart-bar-alt chart-bar chart-stacked check chevron-down chevron-left chevron-right close copy database document download dropdown email external facebook files full github instagram link linkedin logo mastodon minus open pdf play plus preview project project-bar project-database project-line reddit rss search twitter video visibility youtube" | split: " " %}
 
   {% for icon in icons %}
     <div class="flex flex-col items-center">
@@ -405,7 +405,7 @@ links:
 
 <div class="feature pb-1 border-b-blue flow-3">
   <h2 class="m-0 p-0">Content CTA</h2>
-  <p>Intended to highlight a particular link or piece of content. Intended to sit in a <code>.content</code> container.</p>
+  <p>Used to highlight a particular link or piece of content, with both a light and a dark variant.</p>
 </div>
 
 
@@ -417,6 +417,19 @@ links:
     ctaText = "Learn how to use NCCS data"
     imageUrl = "https://placehold.co/855x555"
     imageAlt = "A11y description"
+    style = "light"
+  %}
+</div>
+
+<div class="full">
+  {% include components/content-cta.html
+    header = "Nullam quis risus eget urna mollis"
+    description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
+    ctaUrl = "#"
+    ctaText = "Learn how to use NCCS data"
+    imageUrl = "https://placehold.co/855x555"
+    imageAlt = "A11y description"
+    style = "dark"
   %}
 </div>
 
@@ -455,9 +468,11 @@ links:
 
 <div class="content">
 
+  {% assign horizontalThumbnail = '/public/img/datasets/dataset-placeholder-1.png' | relative_url %}
   {% include components/card-horizontal.html
     header = "Card Sample"
     description = "Donec ullamcorper nulla non metus auctor fringilla."
+    image = horizontalThumbnail
     href = "#"
     date = sampleDate
     categories = sampleTerms
@@ -533,7 +548,7 @@ links:
   %}
 
   <h3>Image Variant</h3>
-  <p class="mt-0">Requires `image` to be set. Only for `_stories`</p>
+  <p class="mt-0">Requires <code>image</code> to be set. Only for <code>_stories</code>. Reverts to dark variant if the first two images do not have <code>image</code> set. (This demo may not work if the first two featured stories do not have images.)</p>
 
   {% include components/content-feature.html
     entries = featured_posts
@@ -561,5 +576,27 @@ links:
     citation = true
     citationDate = sampleDate
     links = page.links
+  %}
+</div>
+
+<div class="feature pb-1 border-b-blue flow-3">
+  <div class="flow flow-1">
+    <h2 class="m-0 p-0">Person</h2>
+    <p>Displays information intended to be pulled from <code>_data/people.yml</code></p>
+  </div>
+</div>
+
+
+<div class="content">
+  {% assign firstPerson = site.data.people | first %}
+  {% assign personImage = "/public/img/" | append: firstPerson.image | relative_url %}
+  {% assign firstAffiliation = firstPerson.affiliation | first %}
+  {% include components/person.html
+    first = firstPerson.first
+    last = firstPerson.last
+    image = personImage
+    title = firstPerson.title
+    affiliation = firstAffiliation.name
+    social = firstPerson.social
   %}
 </div>

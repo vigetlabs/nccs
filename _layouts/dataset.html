@@ -16,8 +16,28 @@ noContentMargin: true
   style = "neutral"
 %}
 
-<div class="content mt-3 mb-3">
+<div class="content mt-3 mb-content">
   <div class="flow">
     {{ content }}
+  </div>
+
+  <div class="mt-3">
+    {% include components/divider.html
+      header = "More Datasets"
+    %}
+
+    <div class="grid-cols-2 gap mt-2">
+      {% assign stories = site.datasets | where_exp: "item", "item.url != page.url" | sort: "date" | reverse %}
+      {% for post in stories limit: "2" %}
+        {% assign url = post.url | relative_url %}
+        {% include components/card-vertical.html
+          eyebrow = post.type
+          header = post.title
+          description = post.description
+          href = url
+          categories = post.categories
+        %}
+      {% endfor %}
+    </div>
   </div>
 </div>

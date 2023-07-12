@@ -7,6 +7,11 @@ p {
   margin: 0;
 }
 
+.text-7xl {
+  @include fluid-font(120, 200);
+  line-height: 1.25;
+}
+
 .text-6xl {
   @include fluid-font(36, 64);
   line-height: 1.25;
@@ -66,6 +71,10 @@ h5, .text-xl {
 
 .font-italic {
   font-style: italic;
+}
+
+.font-monospace {
+  font-family: $font-code;
 }
 
 .leading-relaxed {

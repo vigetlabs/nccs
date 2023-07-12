@@ -1,10 +1,12 @@
 ---
-title: Dataset Sample
+title: Numerus quattuor est satis delectabilis
 date: 2023-05-30 12:00:00
 description: Cras justo odio, dapibus ac facilisis in, egestas eget quam.
 categories:
   - dul amet
   - ventrium
+featured: true
+featuredOrder: 4
 ---
 
 Testing out the dataset collection.

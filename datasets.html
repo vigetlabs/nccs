@@ -11,6 +11,19 @@ activeLink: /datasets/
   description = page.description
 %}
 
+<div class="feature flow flow-4">
+  {% include components/divider.html
+    header = "Recommended"
+  %}
+
+  {% assign featured_posts = site.datasets | where: "featured", "true" | sort: "featuredOrder" %}
+  {% include components/content-feature.html
+    entries = featured_posts
+    eyebrow = "dataset"
+    style = "light"
+  %}
+</div>
+
 {% comment %} 
   FILTERS
   Because of the work needed to set up, the filters cannot be fully componentized
@@ -41,9 +54,12 @@ activeLink: /datasets/
     <div class="posts mt-4" data-filter-entry-section>
       {% for post in site.datasets %}
         {% assign postUrl = post.url | relative_url %}
+        {% assign imageIndex = forloop.index | modulo: 17 %}
+        {% assign image = "/public/img/datasets/dataset-placeholder-" | append: imageIndex | append: ".png" | relative_url %}
         {% include components/card-horizontal.html
           header = post.title
           description = post.description
+          image = image
           date = post.date
           href = postUrl
           categories = post.categories

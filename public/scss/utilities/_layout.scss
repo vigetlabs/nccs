@@ -42,6 +42,10 @@
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 // POSITIONING
 
 .relative {
@@ -52,6 +56,10 @@
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 // MARGIN
@@ -109,11 +117,33 @@
   margin-block-start: 4em;
 }
 
+.mx-auto {
+  margin: 0 auto;
+}
+
+.mi-2 {
+  margin-inline: 2em;
+}
+
+.mi-3 {
+  margin-inline: 3em;
+}
+
 .my-content {
-  margin-block: 2em;
+  margin-block-start: 2em;
+  margin-block-end: 4em;
 
   @include breakpoint(lg) {
-    margin-block: 4em;
+    margin-block-start: 4em;
+    margin-block-end: 6em;
+  }
+}
+
+.mb-content {
+  margin-block-end: 4em;
+
+  @include breakpoint(lg) {
+    margin-block-end: 6em;
   }
 }
 
@@ -125,13 +155,6 @@
   }
 }
 
-.pt-content {
-  padding-block-start: 2em;
-
-  @include breakpoint(lg) {
-    padding-block-start: 4em;
-  }
-}
 
 // PADDING
 // uses logical properties where possible
@@ -150,6 +173,26 @@
 
 .pb-4 {
   padding-block-end: 4em;
+}
+
+.pt-content {
+  padding-block-start: 2em;
+
+  @include breakpoint(lg) {
+    padding-block-start: 4em;
+  }
+}
+
+.pb-content {
+  padding-block-end: 2em;
+
+  @include breakpoint(lg) {
+    padding-block-end: 4em;
+  }
+}
+
+.py-8 {
+  padding-block: 8em;
 }
 
 // STACKING

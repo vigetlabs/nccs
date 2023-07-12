@@ -13,7 +13,7 @@ noContentMargin: true
   citationDate = page.date
 %}
 
-<div class="content mt-3 mb-3">
+<div class="content mt-3 mb-content">
   <div class="flow quarto-content" data-module="content">
     {% if page.image %}
       {% assign imageUrl = "/public/img/" | append: page.image | relative_url %}
@@ -39,6 +39,7 @@ noContentMargin: true
           categories = post.categories
         %}
       {% endfor %}
+
     </div>
   </div>
 </div>

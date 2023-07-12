@@ -1,7 +1,9 @@
-# Teams templated: executive, leadership, member, none (excluded from list)
+# Teams templated: executive, leadership, member
+# To exclude a person from the about page, do not set a team field
 - id: jc
   first: Juri
   last: Cranberry
+  title: Sample Title
   bio: Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur.
   orcid: 0000-0002-1825-0097
   email: josiah@psychoceramics.org
@@ -16,6 +18,8 @@
     - name: linkedin
       url: #
     - name: twitter
+      url: #
+    - name: mastodon
       url: #
 - id: mr
   first: Mihaja
@@ -56,7 +60,23 @@
   last: Doe
   title: International Man of Mystery
   bio: Consectetur sint nemo nihil reprehenderit eius sed eligendi sint alias quod.
-  team: leadership
+  team: member
+  affiliation: 
+    - name: Classified
+      city: Classified
+      state: Classified
+      url: Classified
+  image: people/person-placeholder.png
+  social:
+    - name: linkedin
+      url: #
+    - name: twitter
+      url: #
+- id: jn
+  first: John
+  last: None
+  title: This person is hidden from the about page, but available for citations.
+  bio: Consectetur sint nemo nihil reprehenderit eius sed eligendi sint alias quod.
   affiliation: 
     - name: Classified
       city: Classified

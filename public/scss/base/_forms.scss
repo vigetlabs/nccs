@@ -24,6 +24,7 @@
     border: 1px solid $color-divider;
     color: $color-neutral-800;
     width: 100%;
+    border-radius: 0;
 
     @include breakpoint(md) {
       min-width: 14em;

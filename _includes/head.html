@@ -11,16 +11,25 @@
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
+
   <meta name="description" content="{{ page.description or site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}">
   <meta property="og:title" content="{{ page.title or site.title }}">
   <meta property="og:description" content="{{ page.description or site.description }}">
+  {% if page.image %}
+    {% assign ogimage = page.image | relative_url %}
+  {% else %}
+    {% assign ogimage = site.socialimage | relative_url %}
+  {% endif %}
+  <meta property="og:image" content="{{ ogimage }}">
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/public/scss/main.css">
 
   <!-- Icons -->
   <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-144-precomposed.png">
+  <link rel="icon" href="{{ site.baseurl }}/public/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/public/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl }}/manifest.webmanifest">
 </head>

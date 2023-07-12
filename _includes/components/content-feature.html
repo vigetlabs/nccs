@@ -12,15 +12,23 @@ Content Feature
   {% assign style = "-dark" %}
 {% endif %}
 
-{% if include.style == "image" %}
+{% if include.style == "image" and featured.image %}
   {% assign featuredImage = "/public/img/" | append: featured.image | relative_url %}
+{% elsif include.style == "image" and featured.image == nil %}
+  {% assign style = "-dark" %}
+{% endif %}
+
+{% if include.eyebrow %}
+  {% assign featuredEyebrow = include.eyebrow %}
+{% else %}
+  {% assign featuredEyebrow = featured.type | join: " " %}
 {% endif %}
 
 {% if include.entries and include.entries.size != 0 %}
   <div class="content-feature mt-2 {{ style }}">
     <div class="content-feature__main">
       <div class="content-feature__main__text flow flow-1">
-        <div class="text-sm uppercase">{{ featured.type | join: " " }}</div>
+        <div class="text-sm uppercase">{{ featuredEyebrow }}</div>
         <h2 class="text-5xl mt-0">
           <a href="{{ featured.url | relative_url }}" class="content-feature__main__link">{{ featured.title }}</a>
         </h2>
@@ -47,21 +55,26 @@ Content Feature
     </div>
 
     <div class="content-feature__aside">
-      {% for post in featured_posts offset:1 %}
+      {% for post in featured_posts offset:1 limit:4 %}
         {% assign url = post.url | relative_url %}
+        {% if include.eyebrow %}
+          {% assign eyebrow = include.eyebrow %}
+        {% else %}
+          {% assign eyebrow = post.type %}
+        {% endif %}
         {% if forloop.index == 1 and include.style == "image" %}
           {% if post.image %}
             {% assign imageUrl = "/public/img/" | append: post.image | relative_url %}
           {% endif %}
           {% include components/card-vertical.html
-            eyebrow = post.type
+            eyebrow = eyebrow
             header = post.title
             href = url
             image = imageUrl
           %}
         {% else %}
           {% include components/card-vertical.html
-            eyebrow = post.type
+            eyebrow = eyebrow
             header = post.title
             href = url
           %}

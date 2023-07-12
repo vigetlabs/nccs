@@ -25,8 +25,9 @@ tagline: Short descriptor for site
 description: >- # this means to ignore newlines until "baseurl:"
   Longer description for site
 baseurl: "/nccs" # the subpath of your site if not served from the root, e.g. /nccs
-url: "https://code.viget.com/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://code.viget.com" # the base hostname & protocol for your site, e.g. http://example.com
 repository: "https://github.com/vigetlabs/nccs"
+socialimage: "/public/img/nccs-opengraph.png"
 twitter_username: 
 github_username:
 
@@ -43,8 +44,6 @@ nav:
     url: /stories/
   - title: About
     url: /about/
-  - title: Parts (temp)
-    url: /parts-kit/
 
 # Footer Navigation Items
 # Entries here will show up in the _includes/footer.html partial
@@ -53,6 +52,8 @@ footer_nav:
     url: /privacy/
   - title: Terms & Service
     url: /terms/
+  - title: Parts Kit
+    url: /parts-kit/
 
 # Social Links
 # Entries here will show up in the _includes/footer.html partial in the social section
