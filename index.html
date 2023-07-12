@@ -3,7 +3,7 @@ layout: default
 noContentMargin: true
 ---
 
-<div class="full grid-content bg-pattern-dot pt-content pb-4 relative overflow-hidden bg-white-gradient-center flow">
+<div class="full grid-content bg-pattern-dot pt-content relative overflow-hidden bg-white-gradient-center flow">
   <div class="feature bg-white-gradient-center bg-white-gradient-bottom-right relative">
     <div class="relative z-1">
       {% assign image = "public/img/collage.webp" | relative_url %}
@@ -19,59 +19,105 @@ noContentMargin: true
     </div>
   </div>
 
-  <div class="content text-center flow-4 relative bg-white-gradient-center">
+
+  {% comment %}
+  Content CTA
+  To use a content url, use the variable with the relative_url filter
+  Otherwise change the ctaUrl to a full url
+  {% endcomment %}
+
+  <div class="full text-center flow-4">
     <div class="relative z-1">
-      {% assign ctaImage = "/public/img/stories/story-placeholder.webp" | relative_url %}
+      {% assign contentUrl = "/resources/sample-project/" | relative_url %}
       {% include components/content-cta.html
-        header = "Nullam quis risus eget urna mollis"
-        description = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
-        ctaUrl = "#"
+        header = "Getting Started with NCCS Data"
+        description = "This project contains guides, walkthroughs, and code for users to get started using NCCS Data."
+        ctaUrl = contentUrl
         ctaText = "Learn how to use NCCS data"
-        imageUrl = ctaImage
-        imageAlt = "A11y description"
+        style = "dark"
       %}
     </div>
   </div>
 </div>
 
-<div class="filter full mt-0" data-module="filter">
 
-  {% comment %}
-    Build array of categories, whitespace matters in captures!
-  {% endcomment %}
-  {% for post in site.datasets %}
-    {% for category in post.categories %}
-      {% capture all_categories %}{% if all_categories %}{{ all_categories }},{{ category }}{% else %}{{ category }}{% endif %}{% endcapture %}
-    {% endfor %}
+
+<div class="content text-center flow-4">
+  <h2 class="text-4xl">Datasets</h2>
+  <p class="mt-1">Lorem est dicta atque eaque adipisicing? Ullam doloribus laborum maiores harum cum deserunt Quo numquam rem est quia beatae Esse nemo ad laudantium repudiandae ipsum! Voluptas rem non amet exercitationem.</p>
+</div>
+
+<div class="content flow-4">
+  {% for post in site.datasets limit:8 %}
+    {% assign postUrl = post.url | relative_url %}
+    {% assign imageIndex = forloop.index | modulo: 17 %}
+    {% assign image = "/public/img/datasets/dataset-placeholder-" | append: imageIndex | append: ".png" | relative_url %}
+    {% include components/card-horizontal.html
+      header = post.title
+      description = post.description
+      image = image
+      date = post.date
+      href = postUrl
+      categories = post.categories
+    %}
   {% endfor %}
 
-  {% assign all_categories = all_categories | split: "," | uniq %}
-
-  <div class="grid-content flow flow-2">
-    {% include components/filter-controls.html
-      header = "All Datasets"
-      categoryTitle = "category"
-      categories = all_categories
-      style = "dark"
+  {% assign datasetCta = "/datasets/" | relative_url %}
+  <div class="text-center">
+    {% include components/button.html
+      text = "View All Datasets"
+      href = datasetCta
     %}
+  </div>
+</div>
 
-    <div class="posts mt-4" data-filter-entry-section>
-      {% for post in site.datasets %}
-        {% assign postUrl = post.url | relative_url %}
-        {% assign imageIndex = forloop.index | modulo: 17 %}
-        {% assign image = "/public/img/datasets/dataset-placeholder-" | append: imageIndex | append: ".png" | relative_url %}
-        {% include components/card-horizontal.html
-          header = post.title
-          description = post.description
-          image = image
-          date = post.date
-          href = postUrl
-          categories = post.categories
-        %}
-      {% endfor %}
-      <div data-filter-null data-active="false" class="mb-3 text-center color-neutral-800">
-        Sorry, no results in datasets.
-      </div>
-    </div>
+<div class="feature flow flow-4">
+  {% include components/divider.html
+    header = "Featured Stories"
+  %}
+
+  {% assign featured_posts = site.stories | where: "featured", "true" | sort: "featuredOrder" | limit: "5" %}
+  {% include components/content-feature.html
+    entries = featured_posts
+    style = "image"
+  %}
+
+  {% assign storiesCta = "/stories/" | relative_url %}
+  <div class="text-center">
+    {% include components/button.html
+      text = "View All Stories"
+      href = storiesCta
+    %}
+  </div>
+</div>
+
+<div class="feature flow flow-4 mb-4">
+  {% include components/divider.html
+    header = "Resources"
+  %}
+
+  {% assign resources = site.resources | sort: "date" | reverse %}
+
+  <div class="grid-cols-3 gap-lg mt-2" data-filter-entry-section>
+    {% for post in resources limit:6 %}
+      {% assign url = post.url | relative_url %}
+      {% assign eyebrow = post.type | join: " " %}
+      {% include components/card-vertical.html
+        eyebrow = eyebrow
+        header = post.title
+        description = post.description
+        href = url
+        categories = post.categories
+        type = post.type
+      %}
+    {% endfor %}
+  </div>
+
+  {% assign resourcesCta = "/resources/" | relative_url %}
+  <div class="text-center">
+    {% include components/button.html
+      text = "View All Resources"
+      href = resourcesCta
+    %}
   </div>
 </div>
