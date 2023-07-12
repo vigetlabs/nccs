@@ -42,6 +42,11 @@ citation:
 - `primaryCtaLabel` - {String} small label underneath CTA. Intended for descriptors like 'filesize', but could be used for other purposes.
 - `primaryLinks` - {Object} text/href/icon for a button link in top section. Icon name must match available file in `_includes/svg/`
 
+## Optional fields (shared):
+
+- `featured` - {Boolean} Used on Story index page to pull items to the top
+- `featuredOrder` - {Number} Number for determining ordering for featured entries.
+
 ## Author and Citation
 
 See the main readme for author and citation documentation.
