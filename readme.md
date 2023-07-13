@@ -1,5 +1,11 @@
 # NCCS
 
+## Contents
+
+- [Development](#development)
+- [Fields](#fields)
+- [Quarto](#quarto)
+
 ## Development 
 
 ### To install the site locally:
@@ -71,3 +77,56 @@ Which will cause all default fields to be used. But for customization, refer to 
   - `volume` - {Number} Volume of publication
   - `number` - {Number} Number of publication
 - `citationData` - {Date}
+
+# Quarto
+
+This project makes affordance for using [Quarto](https://quarto.org/) to develop content. Currently the use of Quarto is only supported in `_stories` collection.
+
+To use Quarto:
+
+1. Open the repository root in [RStudio](https://posit.co/products/open-source/rstudio/)
+2. Navigate to or open files in the `_stories` directory
+3. Make any edits to a `.qmd` file needed
+4. Hit 'Render' in Rstudio
+5. Commit all changes to `git` and push up to the project.
+
+The project settings will take care of the rest!
+
+(Note: Github Pages will be set to pull from a specific branch. Make sure to either change the branch it's looking at to the one you're pushing changes to.)
+
+## What happens when you edit a Quarto document:
+
+1. The `_quarto.yml` in the repo root sets YAML defaults and is recognized by RStudio
+2. With the defaults, Quarto renders to markdown to the same directory as the `.qmd` file and preserves all YAML headers
+3. Jekyll, which is set to ignore `.qmd` files, recognizes the `.md` file in `_stories` and renders it to HTML, using all the appropriate templates (header, footer, etc)
+4. Jekyll during the build phase copies over all local folders inside `_stories`, including generated diagrams, etc.
+5. The `extract-media` field in `_quarto.yml` prepends any direct links to look for the copied assets from step 4.
+6. Live content!
+
+## Content Transformation Diagram
+
+Here's another view of what's going on:
+
+```mermaid
+flowchart TD
+    A[REPO] --> B(Quarto) --> |Rstudio Render + _quarto.yml| C(Markdown)
+    Q[_quarto.yml] --> B
+    A --> D(Liquid) --> G(Jekyll)
+    A --> E(SCSS) --> G
+    A --> C(Markdown) --> G
+    A --> F(Templates/Partials) --> G
+    G --> H(HTML, CSS, JS) --> |git| I([Github Pages])
+```
+
+## Editing Tips
+
+- Because we're rendering Quarto to markdown, it will not include [Bootstrap](https://getbootstrap.com/) or other layout libraries. This means anything relying on Bootstrap functionality (callouts, bootstrap layout classes, etc.)
+- The Rstudio preview while editing inside the project will be rather unhelpful. It's recommended to use the Visual editor to preview OR to create the document somewhere else and port it to the project when ready for final stages.
+
+## Previewing Quarto content
+
+The best way to preview the content is to have Jekyll running in development mode (See [Development](#development)).
+
+With the dev server up and a browser window open to the dev url (something like `http://http://127.0.0.1:4000/nccs/`) navigate to stories and find your new entry.
+
+Once you're on that URL, anytime you hit 'Render' from Rstudio, Jekyll will recompile the `.md` and show updates. (It should automatically refresh, if not you can manually refresh to show the changes.)
